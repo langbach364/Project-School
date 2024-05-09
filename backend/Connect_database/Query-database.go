@@ -21,12 +21,18 @@ func insert_Handler(dbInfo *DBInfo) http.HandlerFunc {
 				check_err(err)
 
 				if !Structure_query(query.Query, "insert") {
-					json.NewEncoder(w).Encode("false")
+					response := map[string]bool{
+						"success": false,
+					}
+					json.NewEncoder(w).Encode(response)
 					return;
 				}
 				_, err = dbInfo.DB.Exec(query.Query)
 				check_err(err)
-				json.NewEncoder(w).Encode("true")
+				response := map[string]bool{
+					"success": true,
+				}
+				json.NewEncoder(w).Encode(response)
 			}
 		}
 	}
@@ -45,7 +51,10 @@ func select_Handler(dbInfo *DBInfo) http.HandlerFunc {
 				check_err(err)
 
 				if !Structure_query(query.Query, "select") {
-					json.NewEncoder(w).Encode("false")
+					response := map[string]bool{
+						"success": false,
+					}
+					json.NewEncoder(w).Encode(response)
 					return;
 				}
 
@@ -96,14 +105,20 @@ func delete_Handler(dbInfo *DBInfo) http.HandlerFunc {
 				check_err(err)
 
 				if !Structure_query(query.Query, "delete") {
-					json.NewEncoder(w).Encode("false")
+					response := map[string]bool{
+						"success": false,
+					}
+					json.NewEncoder(w).Encode(response)
 					return;
 				}
 
 				_, err = dbInfo.DB.Exec(query.Query)
 				check_err(err)
 
-				json.NewEncoder(w).Encode("true")
+				response := map[string]bool{
+					"success": true,
+				}
+				json.NewEncoder(w).Encode(response)
 			}
 		default:
 			http.Error(w, "Method is not used", http.StatusMethodNotAllowed)
@@ -124,14 +139,20 @@ func update_Handler(dbInfo *DBInfo) http.HandlerFunc {
 				check_err(err)
 
 				if !Structure_query(query.Query, "update") {
-					json.NewEncoder(w).Encode("false")
+					response := map[string]bool{
+						"success": false,
+					}
+					json.NewEncoder(w).Encode(response)
 					return;
 				}
 
 				_, err = dbInfo.DB.Exec(query.Query)
 				check_err(err)
 
-				json.NewEncoder(w).Encode("true")
+				response := map[string]bool{
+					"success": true,
+				}
+				json.NewEncoder(w).Encode(response)
 			}
 		}
 	}
@@ -149,7 +170,10 @@ func send_code() http.HandlerFunc {
 				check_err(err)
 
 				Send_Email(send_token.Email_sender, send_token.Password_sender, send_token.Email_recevier)
-				json.NewEncoder(w).Encode("true")
+				response := map[string]bool{
+					"success": true,
+				}
+				json.NewEncoder(w).Encode(response)
 			}
 		default:
 			http.Error(w, "Method is not used", http.StatusMethodNotAllowed)
@@ -170,9 +194,15 @@ func session_account() http.HandlerFunc {
 				check_err(err)
 
 				if verify_code(code.Email, code.Code) {
-					json.NewEncoder(w).Encode("true")
+					response := map[string]bool{
+						"success": true,
+					}
+					json.NewEncoder(w).Encode(response)
 				} else {
-					json.NewEncoder(w).Encode("false")
+					response := map[string]bool{
+						"success": false,
+					}
+					json.NewEncoder(w).Encode(response)
 				}
 			}
 		default:
