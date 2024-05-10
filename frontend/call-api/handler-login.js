@@ -1,4 +1,4 @@
-export function handleLogin() {
+export function handleLogin(event) {
   event.preventDefault();
   const log = document.getElementById("log").value;
   const password = document.getElementById("password").value;

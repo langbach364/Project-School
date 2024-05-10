@@ -66,3 +66,7 @@ CREATE TABLE Product_ratings ( -- Bảng đánh giá sản phẩm
     FOREIGN KEY (product_id) REFERENCES Products(product_id),
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
+
+SELECT * FROM Users;
+
+DELETE FROM Users;

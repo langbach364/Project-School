@@ -9,7 +9,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: url("/frontend/html/png/") no-repeat;
+  background: url("./png/img.jpg") no-repeat;
   background-size: cover;
   background-position: center;
 }
@@ -24,6 +24,12 @@ body {
 .wrapper h1 {
   font-size: 36px;
   text-align: center;
+}
+.wrapper h4 {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 100;
+  margin-top: 13px;
 }
 .wrapper .input-box {
   position: relative;

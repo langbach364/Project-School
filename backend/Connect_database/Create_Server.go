@@ -29,7 +29,7 @@ func enable_middleware_cors(next http.Handler) http.Handler {
 			AllowedHeaders:   []string{"Accept", "Accept-Language", "Content-Language", "Content-Type"},
 			AllowedMethods:   []string{"POST"},
 			AllowedOrigins:   []string{"*"},
-			AllowCredentials: true,
+			AllowCredentials: false,
 			Debug:            true,
 		})
 		Cors.ServeHTTP(w, r, next.ServeHTTP)
@@ -111,9 +111,8 @@ func Create_server() {
 	muxtiplexer_router(router)
 
 	server := http.Server{
-		Addr:    "127.0.0.1:5050",
+		Addr:    ":5050",
 		Handler: enable_middleware_cors(router),
 	}
 	server.ListenAndServe()
 }
-
