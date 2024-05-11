@@ -27,3 +27,5 @@ function toggleRepeatPasswordVisibility() {
         repeatPasswordIcon.classList.add("bxs-lock-alt");
     }
 }
+
+

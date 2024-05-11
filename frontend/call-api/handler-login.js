@@ -1,4 +1,4 @@
-export function handleLogin(event) {
+function handleLogin(event) {
   event.preventDefault();
   const log = document.getElementById("log").value;
   const password = document.getElementById("password").value;
@@ -9,7 +9,7 @@ export function handleLogin(event) {
     password: password,
   };
 
-  axios.post("http://127.0.0.1:8080/login", JSON.stringify(data), {
+  axios.post(":8080/login", JSON.stringify(data), {
     headers: {
       'Content-Type': 'application/json'
     }

@@ -10,6 +10,7 @@
       rel="stylesheet"
     />
     <script src="/frontend/javascript/login-register.js"></script>
+    <script src="/frontend/javascript/remember.js"></script>
     <script type="module" src="../call-api/handler-login.js"></script>
     <script src="../call-api/node_modules/axios/dist/axios.min.js"></script>
   </head>
@@ -18,7 +19,12 @@
       <form action="">
         <h1>Login</h1>
         <div class="input-box">
-          <input id = "log" type="text" placeholder="Username or Email" required />
+          <input
+            id="log"
+            type="text"
+            placeholder="Username or Email"
+            required
+          />
           <i class="bx bxs-user"></i>
         </div>
         <div class="input-box">
@@ -36,11 +42,11 @@
         </div>
 
         <div class="remember-forgot">
-          <lable><input type="checkbox"/> Remember me</lable>
+          <lable><input type="checkbox" /> Remember me</lable>
           <a href="forgot_password.html">Forgot Password?</a>
         </div>
 
-        <button id = "sign_in"type="submit" class="btn">Sign in</button>
+        <button id="sign_in" type="submit" class="btn">Sign in</button>
 
         <div class="register-link">
           <p>Don't have an account? <a href="./sign_up.html">Register</a></p>
