@@ -1,0 +1,12 @@
+version: "2"
+authtoken: 2fcrr23XMzHTbFIt4pQK52cUwix_Umc7ZgQSvwD6LDNFXPeA
+tunnels:
+  frontend:
+    proto: http
+    addr: 127.0.0.1:5500
+  api-connect-database:
+    proto: http
+    addr: 127.0.0.1:5050
+  api-handler-data:
+    proto: http
+    addr: 127.0.0.1:8080
