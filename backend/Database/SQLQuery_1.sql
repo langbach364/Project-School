@@ -70,3 +70,8 @@ CREATE TABLE Product_ratings ( -- Bảng đánh giá sản phẩm
 SELECT * FROM Users;
 
 DELETE FROM Users;
+
+CREATE USER 'langbach'@'%' IDENTIFIED BY 'bachlang123';
+GRANT ALL privileges ON database.table TO 'langbach'@'%';
+FLUSH PRIVILEGES;
+

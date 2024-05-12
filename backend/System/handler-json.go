@@ -25,9 +25,8 @@ func Login(router *http.ServeMux) http.HandlerFunc {
 				}
 				json.NewEncoder(w).Encode(&response)
 			}
-		case "GET":
+		default:
 			fmt.Println("Method is not used")
-
 		}
 	}
 }
@@ -50,7 +49,7 @@ func Register(router *http.ServeMux) http.HandlerFunc {
 				}
 				json.NewEncoder(w).Encode(&response)
 			}
-		case "GET":
+		default:
 			fmt.Println("Method is not used")
 		}
 	}

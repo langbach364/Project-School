@@ -10,7 +10,7 @@ function handleRegister(event) {
     password: password,
   };
 
-  axios.post(":8080/register", JSON.stringify(data), {
+  axios.post("http://103.124.92.248:8080/register", JSON.stringify(data), {
     headers: {
       'Content-Type': 'application/json'
     },
@@ -23,4 +23,7 @@ function handleRegister(event) {
     });
 }
 
-document.getElementById("sign_up").addEventListener("click", handleRegister);
+document.addEventListener("DOMContentLoaded", function() {
+  document.getElementById("sign_up").addEventListener("click", handleRegister);
+});
+
