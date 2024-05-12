@@ -4,4 +4,7 @@ services:
     ports:
       - "3306:3306"
     environment:
-      MYSQL_ROOT_PASSWORD: "@ztegc4df9f4e"
+      MYSQL_USER: langbach
+      MYSQL_PASSWORD: "@ztegc4df9f4e"
+      MYSQL_DATABASE: mydatabase
+      MYSQL_RANDOM_ROOT_PASSWORD: "yes"
