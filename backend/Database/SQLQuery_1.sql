@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS SHOP;
 USE SHOP;
 
 CREATE TABLE IF NOT EXISTS Users (
-    user_id     INT PRIMARY KEY,
+    user_id     INT PRIMARY KEY IDENTITY(1,1),
     username    VARCHAR(500) UNIQUE,
     password    VARCHAR(500),
     email       VARCHAR(500) UNIQUE,
