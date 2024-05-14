@@ -67,3 +67,5 @@ CREATE TABLE IF NOT EXISTS Product_ratings (
     FOREIGN KEY (product_id) REFERENCES Products(product_id),
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
+
+SELECT * FROM Users;
