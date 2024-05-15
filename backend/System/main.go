@@ -12,18 +12,16 @@ func enable_middleware_cors(next http.Handler) http.Handler {
 			AllowedHeaders:   []string{"Accept", "Accept-Language", "Content-Language", "Content-Type"},
 			AllowedMethods:   []string{"POST"},
 			AllowedOrigins:   []string{"*"},
-			AllowCredentials: false,
+			AllowCredentials: true,
 			Debug:            true,
 		})
 		Cors.ServeHTTP(w, r, next.ServeHTTP)
 	})
 }
 
-
-
 func muxtiplexer_router(router *http.ServeMux) {
 	router.HandleFunc("/login", Login(router))
-	router.HandleFunc("/register", Register(router))  
+	router.HandleFunc("/register", Register(router))
 }
 
 func Create_server() {
@@ -38,5 +36,5 @@ func Create_server() {
 }
 
 func main() {
-    Create_server()
+	Create_server()
 }

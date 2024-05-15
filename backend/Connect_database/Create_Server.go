@@ -29,7 +29,7 @@ func enable_middleware_cors(next http.Handler) http.Handler {
 			AllowedHeaders:   []string{"Accept", "Accept-Language", "Content-Language", "Content-Type"},
 			AllowedMethods:   []string{"POST"},
 			AllowedOrigins:   []string{"*"},
-			AllowCredentials: false,
+			AllowCredentials: true,
 			Debug:            true,
 		})
 		Cors.ServeHTTP(w, r, next.ServeHTTP)
