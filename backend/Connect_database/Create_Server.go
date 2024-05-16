@@ -111,7 +111,7 @@ func Create_server() {
 	muxtiplexer_router(router)
 
 	server := http.Server{
-		Addr:    ":5050",
+		Addr:    "127.0.0.1:5050",
 		Handler: enable_middleware_cors(router),
 	}
 	server.ListenAndServe()
