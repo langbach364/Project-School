@@ -1,8 +1,9 @@
 package main
 
 import (
-	"time"
 	"math/rand"
+	"time"
+
 	"github.com/go-mail/mail"
 )
 
@@ -42,7 +43,6 @@ func Send_Email(sender string, password string, recevier string) {
 	codeStore[recevier] = token
 	codeExpiry[recevier] = time.Now().Add(5 * time.Minute)
 }
-
 
 func verify_code(email string, code string) bool {
 	storedCode, ok := codeStore[email]
