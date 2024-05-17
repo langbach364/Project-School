@@ -29,7 +29,7 @@ func Create_server() {
 	muxtiplexer_router(router)
 
 	server := http.Server{
-		Addr:    "127.0.0.1:8080",
+		Addr:    ":8080",
 		Handler: enable_middleware_cors(router),
 	}
 	server.ListenAndServe()
