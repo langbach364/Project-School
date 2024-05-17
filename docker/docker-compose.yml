@@ -8,7 +8,8 @@ services:
       - "8000:8000"
       - "8443:8443"
     networks:
-      - my_network
+      my_network:
+        ipv4_address: 172.21.0.2
 
   db:
     build:
@@ -20,7 +21,8 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
-      - my_network
+      my_network:
+        ipv4_address: 172.21.0.3
 
   be:
     build:
@@ -31,11 +33,16 @@ services:
       - "8080:8080"
       - "5050:5050"
     networks:
-      - my_network
+      my_network:
+        ipv4_address: 172.21.0.4
 
 volumes:
   mysql_data:
 
+
 networks:
   my_network:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/24
