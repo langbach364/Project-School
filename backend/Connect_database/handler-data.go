@@ -57,28 +57,33 @@ func check_email(email string) bool {
 	return err == nil && count == 0
 }
 
-func sign_up(username string, email string, Password string) bool {
+func sign_up(username string, email string, Password string) (bool, string) {
 	pass := encode_data(email, Password, 2)
 	db, err := Connect_owner()
-	check_err(err)
-
-	check_email := check_email(email)
-	if !check_email {
-		return false
+	if err != nil {
+		return false, "Error"
 	}
 
-	check_username := check_username(username)
-	if !check_username {
-		return false
+	if !check_email(email) {
+		return false, "Email đã tồn tại"
+	}
+
+	if !check_username(username) {
+		return false, "username đã tồn tại"
 	}
 
 	if username == "" {
 		_, err = db.DB.Exec("INSERT INTO Users (email, password) VALUES (?, ?)", email, pass)
-		check_err(err)
-		return true
+		if err != nil {
+			return false, "error"
+		}
+		return true, "Thêm thành công"
 	}
+
 	_, err = db.DB.Exec("INSERT INTO Users (username, email, password) VALUES (?, ?, ?)", username, email, pass)
-	check_err(err)
-	return true
+	if err != nil {
+		return false, "error"
+	}
+	return true, "Thêm thành công"
 }
 

@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -14,53 +15,69 @@ func check_err(err error) {
 	}
 }
 
-func sendPostRequest(url string, payload interface{}) (map[string]bool, error) {
-    jsonPayload, err := json.Marshal(payload)
-    check_err(err)
+func sendPostRequest(url string, payload interface{}) (map[string]interface{}, error) {
+	jsonPayload, err := json.Marshal(payload)
+	check_err(err)
 
-    req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonPayload))
-    check_err(err)
-    
-    req.Header.Set("Content-Type", "application/json")
+	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonPayload))
+	check_err(err)
 
-    client := &http.Client{}
-    resp, err := client.Do(req)
-    check_err(err)
-    
-    defer resp.Body.Close()
+	req.Header.Set("Content-Type", "application/json")
 
-    body, err := io.ReadAll(resp.Body)
-    check_err(err)
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	check_err(err)
 
-    var responseData map[string]bool
-    err = json.Unmarshal(body, &responseData)
-    check_err(err)
+	defer resp.Body.Close()
 
-    return responseData, nil
+	body, err := io.ReadAll(resp.Body)
+	check_err(err)
+
+	var responseData map[string]interface{}
+	err = json.Unmarshal(body, &responseData)
+	check_err(err)
+
+	return responseData, nil
 }
 
-func login_account(username string, email string, password string) bool {
-    payload := map[string]string{
-        "username": username,
-        "email":    email,
-        "password": password,
-    }
 
-    responseData, err := sendPostRequest("http://127.0.0.1:5050/login", payload)
-    check_err(err)
 
-    return responseData["success"]
+func login_account(username string, email string, password string) (bool, string) {
+	payload := map[string]string{
+		"username": username,
+		"email":    email,
+		"password": password,
+	}
+
+	responseData, err := sendPostRequest("http://192.168.1.171:5050/login", payload)
+	check_err(err)
+
+	fmt.Printf("Response Data: %v\n", responseData)
+
+	success, ok := responseData["success"].(bool)
+	if !ok {
+		log.Fatal("Chuyển đổi dữ liệu thất bại")
+	}
+
+	return success, "Đã gửi dữ liệu"
 }
 
-func register_account(username string, email string, password string) bool {
-    payload := map[string]string{
-        "username": username,
-        "email":    email,
-        "password": password,
-    }
+func register_account(username string, email string, password string) (bool, string) {
+	payload := map[string]string{
+		"username": username,
+		"email":    email,
+		"password": password,
+	}
 
-    responseData, err := sendPostRequest("http://127.0.0.1:5050/register", payload)
-    check_err(err)
+	responseData, err := sendPostRequest("http://192.168.1.171:5050/register", payload)
+	check_err(err)
 
-    return responseData["success"]
+	fmt.Printf("Response Data: %v\n", responseData)
+
+	success, ok := responseData["success"].(bool)
+	if !ok {
+		log.Fatal("Chuyển đổi dữ liệu thất bại")
+	}
+
+	return success, "Đã gửi dữ liệu"
 }

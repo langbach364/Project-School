@@ -11,7 +11,7 @@ func Login(router *http.ServeMux) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "application/json")
 		switch r.Method {
-		case "POST": 
+		case "POST":
 			{
 				body, err := io.ReadAll(r.Body)
 				check_err(err)
@@ -19,9 +19,10 @@ func Login(router *http.ServeMux) http.HandlerFunc {
 				var object LoginPayload
 				err = json.Unmarshal(body, &object)
 				check_err(err)
-				check := login_account(object.Username, object.Email, object.Password)
-				response := map[string]bool{
+				check, status := login_account(object.Username, object.Email, object.Password)
+				response := map[string]interface{}{
 					"success": check,
+					"status":  status,
 				}
 				json.NewEncoder(w).Encode(&response)
 			}
@@ -43,9 +44,10 @@ func Register(router *http.ServeMux) http.HandlerFunc {
 				var object RegisterPayload
 				err = json.Unmarshal(body, &object)
 				check_err(err)
-				check := register_account(object.Username, object.Email, object.Password)
-				response := map[string]bool{
+				check, status := register_account(object.Username, object.Email, object.Password)
+				response := map[string]interface{}{
 					"success": check,
+					"status":  status,
 				}
 				json.NewEncoder(w).Encode(&response)
 			}
