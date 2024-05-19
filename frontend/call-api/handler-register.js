@@ -10,12 +10,12 @@ function handleRegister(event) {
     password: password,
   };
 
-  axios.post("http://127.0.0.1:8080/register", JSON.stringify(data), {
+  axios.post("https://127.0.0.1:8443/register", JSON.stringify(data), {
     headers: {
       'Content-Type': 'application/json'
     },
   })
-    .then(response => {
+  .then(response => {
       console.log(response.data);
     })
     .catch(error => {

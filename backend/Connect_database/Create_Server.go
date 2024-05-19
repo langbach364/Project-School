@@ -41,7 +41,7 @@ func enable_middleware_cors(next http.Handler) http.Handler {
 }
 
 func Connect_owner() (*DBInfo, error) {
-	connStr := "root:@ztegc4df9f4e@tcp(localhost:3306)/SHOP"
+	connStr := "root:@ztegc4df9f4e@tcp(172.21.0.3:3306)/SHOP"
 	db, err := sql.Open("mysql", connStr)
 	check_err(err)
 	return &DBInfo{DB: db}, nil

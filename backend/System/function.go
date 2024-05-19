@@ -40,8 +40,6 @@ func sendPostRequest(url string, payload interface{}) (map[string]interface{}, e
 	return responseData, nil
 }
 
-
-
 func login_account(username string, email string, password string) (bool, string) {
 	payload := map[string]string{
 		"username": username,
@@ -49,7 +47,7 @@ func login_account(username string, email string, password string) (bool, string
 		"password": password,
 	}
 
-	responseData, err := sendPostRequest("http://192.168.1.171:5050/login", payload)
+	responseData, err := sendPostRequest("http://127.0.0.1:5050/login", payload)
 	check_err(err)
 
 	fmt.Printf("Response Data: %v\n", responseData)
@@ -69,7 +67,7 @@ func register_account(username string, email string, password string) (bool, str
 		"password": password,
 	}
 
-	responseData, err := sendPostRequest("http://192.168.1.171:5050/register", payload)
+	responseData, err := sendPostRequest("http://127.0.0.1:5050/register", payload)
 	check_err(err)
 
 	fmt.Printf("Response Data: %v\n", responseData)
