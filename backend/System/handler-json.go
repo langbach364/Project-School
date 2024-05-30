@@ -56,3 +56,22 @@ func Register(router *http.ServeMux) http.HandlerFunc {
 		}
 	}
 }
+
+func Search_products(router *http.ServeMux) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		switch r.Method {
+		case "POST":
+			{
+				body, err := io.ReadAll(r.Body)
+				check_err(err)
+
+				var search SearchPayload
+				err = json.Unmarshal(body, &search)
+				check_err(err)
+
+				
+			}
+		}
+	}
+}

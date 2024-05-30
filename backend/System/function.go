@@ -1,12 +1,10 @@
 package main
 
 import (
-	"bytes"
-	"encoding/json"
-	"fmt"
-	"io"
 	"log"
-	"net/http"
+	"os"
+	"strings"
+	"time"
 )
 
 func check_err(err error) {
@@ -15,67 +13,49 @@ func check_err(err error) {
 	}
 }
 
-func sendPostRequest(url string, payload interface{}) (map[string]interface{}, error) {
-	jsonPayload, err := json.Marshal(payload)
-	check_err(err)
+func writeFile(content string, filePath string) {
+	err := os.WriteFile(filePath, []byte(content), 0644)
+	time.Sleep(1 * time.Second)
 
-	req, err := http.NewRequest("POST", url, bytes.NewBuffer(jsonPayload))
-	check_err(err)
-
-	req.Header.Set("Content-Type", "application/json")
-
-	client := &http.Client{}
-	resp, err := client.Do(req)
-	check_err(err)
-
-	defer resp.Body.Close()
-
-	body, err := io.ReadAll(resp.Body)
-	check_err(err)
-
-	var responseData map[string]interface{}
-	err = json.Unmarshal(body, &responseData)
-	check_err(err)
-
-	return responseData, nil
+	if err != nil {
+		log.Fatalf("không thể ghi vào file: %v", err)
+	}
 }
 
-func login_account(username string, email string, password string) (bool, string) {
-	payload := map[string]string{
-		"username": username,
-		"email":    email,
-		"password": password,
+func readFile(filePath string) (string, error) {
+	content, err := os.ReadFile(filePath)
+
+	if err != nil {
+		return "", err
 	}
-
-	responseData, err := sendPostRequest("http://127.0.0.1:5050/login", payload)
-	check_err(err)
-
-	fmt.Printf("Response Data: %v\n", responseData)
-
-	success, ok := responseData["success"].(bool)
-	if !ok {
-		log.Fatal("Chuyển đổi dữ liệu thất bại")
-	}
-
-	return success, "Đã gửi dữ liệu"
+	return string(content), nil
 }
 
-func register_account(username string, email string, password string) (bool, string) {
-	payload := map[string]string{
-		"username": username,
-		"email":    email,
-		"password": password,
+func Translate_VN_to_EN(input string) string {
+	writeFile(input, "../translate/trans.txt")
+
+	content, err := readFile("../translate/trans_ed.txt")
+
+	if err != nil {
+		log.Fatalf("không thể đọc file: %v", err)
 	}
+	return content
+}
 
-	responseData, err := sendPostRequest("http://127.0.0.1:5050/register", payload)
-	check_err(err)
+//Time complexity: O(2n) n là độ dài của input
+func split_string(input string) []string {
+	input = strings.ToLower(input)
+	result := strings.Split(input, " ")
+	return result
+}
 
-	fmt.Printf("Response Data: %v\n", responseData)
-
-	success, ok := responseData["success"].(bool)
-	if !ok {
-		log.Fatal("Chuyển đổi dữ liệu thất bại")
+//Time complexity: O(N * m) N là số lượng từ, m là độ dài của từ
+func find_word(m map[string]interface{}, word string) string {
+	word = strings.ToLower(word)
+	for x, k := range m {
+		if strings.HasPrefix(x, word) {
+			return k.(string)
+		}
 	}
-
-	return success, "Đã gửi dữ liệu"
+	return ""
 }

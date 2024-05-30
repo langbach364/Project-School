@@ -21,3 +21,7 @@ type EmailPayload struct {
 type UsernamePayload struct {
     Username string `json:"username"`
 }
+
+type SearchPayload struct {
+    Search string `json:"search"`
+}

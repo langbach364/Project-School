@@ -25,7 +25,7 @@ func insert_Handler(dbInfo *DBInfo) http.HandlerFunc {
 						"success": false,
 					}
 					json.NewEncoder(w).Encode(response)
-					return;
+					return
 				}
 				_, err = dbInfo.DB.Exec(query.Query)
 				check_err(err)
@@ -55,7 +55,7 @@ func select_Handler(dbInfo *DBInfo) http.HandlerFunc {
 						"success": false,
 					}
 					json.NewEncoder(w).Encode(response)
-					return;
+					return
 				}
 
 				rows, err := dbInfo.DB.Query(query.Query)
@@ -81,7 +81,6 @@ func select_Handler(dbInfo *DBInfo) http.HandlerFunc {
 					for i, column := range columns {
 						row[column] = values[i]
 					}
-
 					data = append(data, row)
 				}
 				json.NewEncoder(w).Encode(data)
@@ -109,7 +108,7 @@ func delete_Handler(dbInfo *DBInfo) http.HandlerFunc {
 						"success": false,
 					}
 					json.NewEncoder(w).Encode(response)
-					return;
+					return
 				}
 
 				_, err = dbInfo.DB.Exec(query.Query)
@@ -143,7 +142,7 @@ func update_Handler(dbInfo *DBInfo) http.HandlerFunc {
 						"success": false,
 					}
 					json.NewEncoder(w).Encode(response)
-					return;
+					return
 				}
 
 				_, err = dbInfo.DB.Exec(query.Query)
