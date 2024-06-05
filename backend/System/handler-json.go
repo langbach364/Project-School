@@ -70,8 +70,16 @@ func Search_products(router *http.ServeMux) http.HandlerFunc {
 				err = json.Unmarshal(body, &search)
 				check_err(err)
 
-				
+				products, status := select_product(search.Search)
+				response := map[string]interface{}{
+					"product": products,
+					"status":  status,
+				}
+				json.NewEncoder(w).Encode(&response)
 			}
+		default:
+			fmt.Println("Method is not used")
 		}
 	}
 }
+

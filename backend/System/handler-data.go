@@ -9,7 +9,6 @@ import (
 	"net/http"
 )
 
-
 func sendPostRequest(url string, payload interface{}) (map[string]interface{}, error) {
 	jsonPayload, err := json.Marshal(payload)
 	check_err(err)
@@ -75,14 +74,39 @@ func register_account(username string, email string, password string) (bool, str
 	return success, "Đã gửi dữ liệu"
 }
 
-func search_products(search string) map[string]interface{} {
-	list_product, err := sendPostRequest("http://127.0.0.1:5050/search", "SELECT category_name, product_name FROM Products")
+func select_product(input string) ([]string, string) {
+	payload := map[string]string{
+		"query": "SELECT category_name, product_name FROM Products",
+	}
+	responseData, err := sendPostRequest("http://127.0.0.1:5050/select", payload)
 	check_err(err)
 
-	Search := Translate_VN_to_EN(search)
-	words_search := split_string(Search)
+	input = Translate_VN_to_EN(input)
+	responseData = to_lowercase_map(responseData)
 
-	result := make(map[string]interface{})
+	if responseData["success"] != true {
+		return nil, "Truy vấn thất bại"
+	}
 
-	
+	Input := split_string(input)
+
+	products := search_products(Input, responseData)
+	return products, "Truy vấn thành công"
+}
+
+func ratting_products(evaluate RattingPayload) (bool, string) {
+	query := fmt.Sprintf(
+        "INSERT INTO Ratting (product_id, user_id, start, comment) VALUES (%d, %d, %f, '%s')",
+        evaluate.Product_id, evaluate.User_id, evaluate.Start, evaluate.Comment,
+    )
+	payload := map[string]interface{}{
+		"query": query,
+	}
+	responseData, err := sendPostRequest("http://127.0.0.1:5050/insert", payload)
+	check_err(err)
+
+	if responseData["success"] != true {
+		return false, "Thêm dữ liệu thất bại kiểm tra lại thuộc tính"
+	}
+	return true, "Thêm thanh công"
 }

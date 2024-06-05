@@ -25,3 +25,10 @@ type UsernamePayload struct {
 type SearchPayload struct {
     Search string `json:"search"`
 }
+
+type RattingPayload struct {
+	Product_id int     `json:"product_id"`
+	User_id    int     `json:"user_id"`
+	Start      float64 `json:"start"`
+	Comment    string  `json:"comment"`
+}

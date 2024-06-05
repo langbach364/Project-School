@@ -115,7 +115,7 @@ func mixing_rules(merge string, SizeHash int) []int {
 		sum := convert_rune_to_int(rune(merge[i])) + convert_rune_to_int(rune(merge[i+1]))
 
 		if !check_symbol(sum, SizeHash) {
-			convert_symbol(&sum, SizeHash - 1)
+			convert_symbol(&sum, SizeHash-1)
 		}
 
 		result[i] = sum
@@ -236,7 +236,7 @@ func combine_excessive(merge string, save_excessive int) string {
 
 // /////////////////////////////////////////////////////////////////////////////////////////
 // Bắt đầu việc mã hóa(tạo nhiều đối tượng cho dễ debug hơn)
-func encode_data1(dataGmail string, dataPassword string, size_hash int) string {
+func encode_data(dataGmail string, dataPassword string, size_hash int) string {
 	if size_hash < 2 {
 		size_hash = 2
 	}

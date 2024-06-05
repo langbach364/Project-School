@@ -39,12 +39,13 @@ func check_login(username string, email string, password string) bool {
 	pass := encode_data(log, password, 2)
 	return storePassword == pass
 }
+
 func check_username(username string) bool {
 	db, err := Connect_owner()
 	check_err(err)
 
 	count := 0
-	err = db.DB.QueryRow("SELECT COUNT(*) FROM Users WHERE username =?", username).Scan(&count)
+	err = db.DB.QueryRow("SELECT COUNT(*) FROM Users WHERE username = ?", username).Scan(&count)
 	return err == nil && count == 0
 }
 
@@ -53,7 +54,7 @@ func check_email(email string) bool {
 	check_err(err)
 
 	count := 0
-	err = db.DB.QueryRow("SELECT COUNT(*) FROM Users WHERE email =?", email).Scan(&count)
+	err = db.DB.QueryRow("SELECT COUNT(*) FROM Users WHERE email = ?", email).Scan(&count)
 	return err == nil && count == 0
 }
 
@@ -86,4 +87,3 @@ func sign_up(username string, email string, Password string) (bool, string) {
 	}
 	return true, "Thêm thành công"
 }
-
