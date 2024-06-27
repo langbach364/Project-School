@@ -32,16 +32,47 @@ services:
       dockerfile: ./dockerfile/nginx.dockerfile
     container_name: my_nginx_container
     ports:
-      - "8000:8000"
-      - "8443:8443"
+      - "80:80"
+      - "443:443"
     depends_on:
       - be
+      - certbot-init
+    volumes:
+      - certs:/etc/letsencrypt
+      - certs-data:/data/letsencrypt
+      - /tmp/certbot:/tmp/certbot
     networks:
       my_network:
         ipv4_address: 172.21.0.2
 
+  certbot:
+    build:
+      context: ../
+      dockerfile: ./docker/dockerfile/certbot.dockerfile
+    container_name: certbot
+    volumes:
+      - certs:/etc/letsencrypt
+      - certs-data:/data/letsencrypt
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+
+  certbot-init:
+    build:
+      context: ../
+      dockerfile: ./docker/dockerfile/certbot.dockerfile
+    container_name: certbot_init
+    volumes:
+      - certs:/etc/letsencrypt
+      - certs-data:/data/letsencrypt
+      - /tmp/certbot:/tmp/certbot
+    entrypoint: "/bin/sh -c 'certbot certonly --webroot --webroot-path=/data/letsencrypt -d seller-technology.langbach.io.vn && touch /tmp/certbot/done'"
+    networks:
+      my_network:
+        ipv4_address: 172.21.0.5
+
 volumes:
   mysql_data:
+  certs:
+  certs-data:
 
 networks:
   my_network:

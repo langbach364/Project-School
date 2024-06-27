@@ -16,9 +16,8 @@ func check_allowed(attribute_No_Allowed map[string]bool, column string) bool {
 // This is function to block attributes that are not allowed to query
 func queryNotAllowed() map[string]bool {
 	Attricbute := map[string]bool{
-		"password": true,
-		"tokenID":  true,
-		"code":     true,
+		"tokenID": true,
+		"code":    true,
 	}
 	return Attricbute
 }
@@ -28,7 +27,6 @@ func queryNotAllowed() map[string]bool {
 func Operator_Allowed() map[string]bool {
 	operator := map[string]bool{
 		">": true,
-		"=": true,
 	}
 	return operator
 }
@@ -52,19 +50,18 @@ func add_black_list() map[string]bool {
 	return black_list
 }
 
-
 // Hàm này chia một chuỗi theo từng từ
 // This function splits a string into words
 func split_words(query string) []string {
 
 	black_list := add_black_list()
-    for blackListItem := range black_list {
-        query = strings.ReplaceAll(query, blackListItem, "")
-    }
+	for blackListItem := range black_list {
+		query = strings.ReplaceAll(query, blackListItem, "")
+	}
 
-    words := strings.Fields(query)
+	words := strings.Fields(query)
 
-    return words
+	return words
 }
 
 // Hàm này kiểm tra câu truy vấn hợp lệ
@@ -74,11 +71,11 @@ func check_query(words []string) bool {
 }
 
 func list_query() map[string]bool {
-	words := map[string]bool {
-		"SELECT" : true,
-		"DELETE" : true,
-		"INSERT" : true,
-		"UPDATE" : true,
+	words := map[string]bool{
+		"SELECT": true,
+		"DELETE": true,
+		"INSERT": true,
+		"UPDATE": true,
 	}
 	return words
 }
@@ -95,8 +92,8 @@ func check_structure(word string, Struct string, i int, list map[string]bool) bo
 // Hàm này kiểm tra cấu trúc câu truy vấn hợp lệ
 // This is function to check the structure of the query is valid
 func check_sructure_query(words []string, Struct string) bool {
-    list := list_query()
-    Struct = strings.ToUpper(Struct)
+	list := list_query()
+	Struct = strings.ToUpper(Struct)
 	for i, word := range words {
 		word = strings.ToUpper(word)
 		if !check_structure(word, Struct, i, list) {
@@ -105,6 +102,7 @@ func check_sructure_query(words []string, Struct string) bool {
 	}
 	return true
 }
+
 // Hàm này kiểm tra xem các thuộc tính và toán tử có được truy vấn có được cho phép hay không
 // This function checks if the attributes and operators are allowed to be queried
 func check_condition_allowed(words []string) bool {
@@ -113,9 +111,7 @@ func check_condition_allowed(words []string) bool {
 			return false
 		} else if !check_allowed(Operator_Allowed(), word) {
 			return false
-		} 
+		}
 	}
 	return true
 }
-
-

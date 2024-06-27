@@ -22,6 +22,9 @@ func enable_middleware_cors(next http.Handler) http.Handler {
 func muxtiplexer_router(router *http.ServeMux) {
 	router.HandleFunc("/login", Login(router))
 	router.HandleFunc("/register", Register(router))
+	router.HandleFunc("/send_code", Send_code(router))
+	router.HandleFunc("/verify_code", Verify_code(router))
+	router.HandleFunc("/change_password", Change_password(router))
 }
 
 func Create_server() {

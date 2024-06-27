@@ -1,0 +1,148 @@
+/* Ẩn menu chính trên màn hình nhỏ */
+@media (max-width: 960px) {
+  .uk-navbar-nav > li > a {
+    display: none;
+  }
+
+  /* Hiển thị biểu tượng menu */
+  .uk-navbar-nav > li:last-child > a {
+    display: inline-block;
+  }
+
+  /* Đảm bảo dropdown hiển thị đúng */
+  .uk-navbar-dropdown {
+    position: absolute;
+    top: 100%;
+    left: auto;
+    right: 0;
+    background: #333;
+    color: #fff;
+    display: none; /* Ẩn dropdown menu mặc định */
+    z-index: 1000; /* Đảm bảo dropdown hiển thị trên các phần tử khác */
+    opacity: 0; /* Bắt đầu với độ mờ */
+    transform: translateY(-20px); /* Bắt đầu với vị trí cao hơn */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Thêm hiệu ứng chuyển động */
+  }
+
+  .uk-navbar-dropdown.uk-open {
+    display: block; /* Hiển thị dropdown menu khi có lớp uk-open */
+    opacity: 1; /* Đặt độ mờ về 1 */
+    transform: translateY(0); /* Đặt vị trí về ban đầu */
+  }
+
+  .uk-navbar-dropdown-nav > li > a {
+    color: #fff;
+  }
+
+  .uk-navbar-dropdown-nav > li > a:hover,
+  .uk-navbar-dropdown-nav > li > a.active {
+    color: #686666;
+  }
+
+  /* Ẩn các phần tử trong uk-navbar-center và uk-navbar-right */
+  .uk-navbar-center,
+  .uk-navbar-right {
+    display: none;
+  }
+  .menu-icon {
+    display: flex !important;
+    justify-content: center;
+  }
+
+  /* Thêm hiệu ứng chuyển động cho phần main */
+  .transition-margin {
+    transition: margin-top 0.5s ease-in-out;
+  }
+}
+
+/* Ví dụ về CSS cho header và footer */
+.uk-navbar-container {
+  background-color: #333 !important;
+  color: #fff !important;
+  padding: 10px 0 !important;
+}
+
+.uk-navbar-nav > li > a {
+  color: #fff !important;
+  font-weight: 600;
+}
+
+.uk-navbar-nav > li > a:hover,
+.uk-navbar-nav > li > a.active {
+  color: #686666 !important;
+}
+
+.uk-logo {
+  color: #fff !important;
+  font-weight: bold !important;
+}
+
+.uk-logo:hover {
+  color: #ddd !important;
+}
+
+footer {
+  margin-top: 40px;
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 10px;
+  min-width: 200px;
+}
+
+.footer-section h4 {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.social-media {
+  display: flex;
+}
+
+.social-media li {
+  margin-right: 10px;
+  padding: 0 10px;
+}
+
+.social-media li a img {
+  width: 24px !important;
+  height: 24px !important;
+  font-size: 24px !important;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #444;
+  margin-top: 20px;
+}

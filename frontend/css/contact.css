@@ -1,0 +1,325 @@
+/* Đặt lại các thuộc tính cơ bản */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.uk-navbar-container {
+  background-color: #333;
+  color: #fff;
+}
+
+.uk-navbar-nav > li > a {
+  color: #fff;
+}
+
+.uk-navbar-nav > li > a:hover,
+.uk-navbar-nav > li > a.active {
+  color: #686666;
+}
+
+.uk-logo {
+  color: #fff;
+  font-weight: bold;
+}
+
+.uk-logo:hover {
+  color: #ddd;
+}
+
+main {
+  flex: 1; /* Để phần main chiếm toàn bộ không gian còn lại */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 0 20px;
+}
+
+.discount-section {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.discount-brands-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.discount-brand {
+  flex: 1 1 300px; /* Đặt chiều rộng tối thiểu cho các thẻ */
+  max-width: 300px; /* Đặt chiều rộng tối đa cho các thẻ */
+  margin-bottom: 2rem;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.discount-brand h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-transform: uppercase;
+  border-bottom: 2px solid #3498db;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  cursor: pointer; /* Thêm con trỏ chuột để chỉ ra rằng đây là một phần tử có thể tương tác */
+  transition: all 0.3s ease-in-out;
+}
+
+.discount-brand .discount-categories-container {
+  display: none; /* Ẩn các thẻ mặc định */
+  flex-wrap: wrap;
+  justify-content: center; /* Căn giữa các thẻ */
+  gap: 1rem; /* Khoảng cách giữa các thẻ */
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease-in-out;
+}
+
+.discount-brand.active .discount-categories-container {
+  display: flex; /* Hiển thị các thẻ khi danh mục được kích hoạt */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.discount-category {
+  flex: 1 1 300px; /* Đặt chiều rộng tối thiểu cho các thẻ */
+  max-width: 300px; /* Đặt chiều rộng tối đa cho các thẻ */
+  margin-bottom: 2rem;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.discount-category h4 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-transform: uppercase;
+  border-bottom: 2px solid #3498db;
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  cursor: pointer; /* Thêm con trỏ chuột để chỉ ra rằng đây là một phần tử có thể tương tác */
+  transition: all 0.3s ease-in-out;
+}
+
+.discount-category .discount-cards-container {
+  display: none; /* Ẩn các thẻ mặc định */
+  flex-wrap: wrap;
+  justify-content: center; /* Căn giữa các thẻ */
+  gap: 1rem; /* Khoảng cách giữa các thẻ */
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease-in-out;
+}
+
+.discount-category.active .discount-cards-container {
+  display: flex; /* Hiển thị các thẻ khi danh mục được kích hoạt */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.discount-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  flex: 1 1 300px; /* Đặt chiều rộng tối thiểu cho các thẻ */
+  max-width: 300px; /* Đặt chiều rộng tối đa cho các thẻ */
+}
+
+.discount-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.discount-card h4 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.discount-card p {
+  margin: 0;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.discount-card .buy-now {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.discount-card .buy-now:hover {
+  background-color: #2980b9;
+}
+
+.discount-codes {
+  margin-top: 1rem;
+}
+
+.discount-codes h5 {
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.discount-codes ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center; /* Căn giữa các mã giảm giá */
+}
+
+.discount-codes li {
+  background-color: #000; /* Màu nền đen */
+  color: #fff; /* Chữ trắng */
+  padding: 0.5rem;
+  border-radius: 4px;
+  text-align: center;
+  width: 90px; /* Đặt chiều rộng là 90px */
+  box-sizing: border-box;
+  font-size: 0.8rem; /* Giảm kích thước chữ */
+  transition: background-color 0.3s;
+}
+
+.discount-codes li:hover {
+  background-color: #444; /* Màu nền khi hover */
+}
+
+.apply-discount {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.apply-discount input {
+  padding: 0.5rem;
+  width: 60%;
+  margin-right: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.apply-discount button {
+  padding: 0.5rem 1rem;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.apply-discount button:hover {
+  background-color: #2980b9;
+}
+
+#discount-message {
+  margin-top: 1rem;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: auto; /* Đẩy footer xuống cuối trang */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 10px;
+  min-width: 200px;
+}
+
+.footer-section h4 {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center; /* Căn giữa các biểu tượng mạng xã hội */
+}
+
+.social-media li {
+  margin-right: 10px;
+  padding: 0 10px;
+}
+
+.social-media li a img {
+  width: 24px !important;
+  height: 24px !important;
+  font-size: 24px !important;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #444;
+  margin-top: 20px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #fff;
+}

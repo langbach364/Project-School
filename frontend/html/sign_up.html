@@ -4,81 +4,65 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đăng ký</title>
-    <link rel="stylesheet" href="/frontend/css/login-register.css" />
-    <link
-      rel="stylesheet"
-      href="/frontend/javascript/animation-button/animation-button.css"
-    />
-    <script src="/frontend/javascript/login-register.js"></script>
-    <script src="/frontend/javascript/remember.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="../css/login-register.css" />
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit-icons.min.js"></script>
+  </head>
+  <body>
+    <div class="uk-section uk-flex uk-flex-middle uk-animation-fade" uk-height-viewport>
+      <div class="uk-width-1-1">
+        <div class="uk-container">
+          <div class="uk-grid-margin uk-grid uk-grid-stack" uk-grid>
+            <div class="uk-width-1-1@m">
+              <div class="uk-margin uk-width-large uk-margin-auto uk-card uk-card-default uk-card-body uk-box-shadow-large">
+                <h1 class="uk-card-title uk-text-center">Register</h1>
+                <form>
+                  <div class="uk-margin">
+                    <div class="uk-inline uk-width-1-1">
+                      <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                      <input id="email" class="uk-input" type="email" placeholder="Email" required />
+                    </div>
+                  </div>
+                  <div class="uk-margin">
+                    <div class="uk-inline uk-width-1-1">
+                      <span class="uk-form-icon" uk-icon="icon: user"></span>
+                      <input id="username" class="uk-input" type="text" placeholder="Username" required />
+                    </div>
+                  </div>
+                  <div class="uk-margin">
+                    <div class="uk-inline uk-width-1-1">
+                      <a href="#" class="uk-form-icon" uk-icon="icon: unlock" onclick="togglePasswordVisibility('password', this)"></a>
+                      <input id="password" class="uk-input" type="password" placeholder="Password" required />
+                    </div>
+                  </div>
+                  <div class="uk-margin">
+                    <div class="uk-inline uk-width-1-1">
+                      <a href="#" class="uk-form-icon" uk-icon="icon: unlock" onclick="togglePasswordVisibility('repeat-password', this)"></a>
+                      <input id="repeat-password" class="uk-input" type="password" placeholder="Repeat Password" required />
+                    </div>
+                    <span id="passwordError" class="uk-text-danger" style="display: none;">Passwords do not match.</span>
+                  </div>
+                  <div class="uk-margin uk-flex uk-flex-between uk-flex-middle">
+                    <label><input class="uk-checkbox" type="checkbox" /> Remember me</label>
+                    <a class="uk-link" href="forgot_password.html">Forgot Password?</a>
+                  </div>
+                  <div id="toast-container"></div>
+                  <button id="sign_up" type="submit" class="uk-button uk-button-primary uk-width-1-1">Sign up</button>
+                  <div class="uk-text-small uk-text-center uk-margin-top">
+                    Already have an account? <a href="sign_in.html">Login</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../javascript/notify.js"></script>
+    <script src="../javascript/login-register.js"></script>
     <script src="../call-api/handler-register.js"></script>
     <script src="../call-api/node_modules/axios/dist/axios.min.js"></script>
-    <script src="/frontend/javascript/check-password.js"></script>
-
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-  </head>
-
-  <body>
-    <div class="wrapper">
-      <form action="">
-        <h1>Register</h1>
-        <div class="input-box">
-          <input id="email" type="email" placeholder="Email" required />
-          <i class="bx bxs-envelope"></i>
-        </div>
-
-        <div class="input-box">
-          <input id="username" type="text" placeholder="Username" required />
-          <i class="bx bxs-user"></i>
-        </div>
-
-        <div class="input-box">
-          <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            required
-          />
-          <i
-            class="bx bxs-lock-alt"
-            id="togglePassword"
-            onclick="togglePasswordVisibility()"
-          ></i>
-        </div>
-
-        <div class="input-box">
-          <input
-            type="password"
-            id="repeat-password"
-            placeholder="Repeat Password"
-            required
-          />
-          <i
-            class="bx bxs-lock-alt"
-            id="toggleRepeatPassword"
-            onclick="toggleRepeatPasswordVisibility()"
-          ></i>
-          <span id="passwordError" class="error-message"
-            >Passwords do not match.</span
-          >
-        </div>
-
-        <div class="remember-forgot">
-          <lable><input type="checkbox" /> Remember me</lable>
-          <a href="forgot_password.html">Forgot Password?</a>
-        </div>
-
-        <button id="sign_up" type="submit" class="btn btn-animate">
-          Sign up
-        </button>
-
-        <div class="register-link">
-          <p>Already have a account? <a href="sign_in.html">Login</a></p>
-        </div>
-      </form>
-    </div>
+    <script src="../javascript/check_password.js"></script>
   </body>
 </html>

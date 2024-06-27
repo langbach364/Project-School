@@ -9,5 +9,5 @@ done
 
 echo "Cổng mysql từ $IP:$PORT đã mở có thể chạy mã nguồn"
 
-chmod +x ./start.sh
-./start.sh
+chmod +x ./start_sources.sh
+./start_sources.sh

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.22/css/uikit.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="../css/header-reponsive.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.22/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.22/js/uikit-icons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</head>
+<body>
+    <header class="uk-sticky uk-sticky-fixed animate__animated animate__fadeInDown" data-aos="fade-down">
+        <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+            <div class="uk-navbar-left">
+                <a href="./home.html" class="uk-navbar-item uk-logo">J97 Shop</a>
+            </div>
+            <div class="uk-navbar-center">
+                <ul class="uk-navbar-nav">
+                    <li><a href="./home.html" class="{{homeActive}}">Home</a></li>
+                    <li><a href="./product.html" class="{{productActive}}">Product</a></li>
+                    <li><a href="./blog.html" class="{{blogActive}}">Blog</a></li>
+                    <li><a href="./contact.html" class="{{contactActive}}">Contact</a></li>
+                </ul>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="#" uk-toggle="target: #cartModal">
+                            <span uk-icon="icon: cart" class="uk-icon"></span>
+                            <span class="uk-badge cart-count">0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"><span uk-icon="icon: user" class="uk-icon"></span></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-icon uk-navbar-right">
+                <a href="javascript:void(0);" uk-icon="icon: menu"></a>
+            </div>
+            <div class="uk-navbar-dropdown">
+                <ul class="uk-nav uk-dropdown-nav">
+                    <li><a href="./home.html" class="{{homeActive}}">Home</a></li>
+                    <li><a href="./product.html" class="{{productActive}}">Product</a></li>
+                    <li><a href="./blog.html" class="{{blogActive}}">Blog</a></li>
+                    <li><a href="./contact.html" class="{{contactActive}}">Contact</a></li>
+                    <li>
+                        <a href="#" uk-toggle="target: #cartModal">
+                            <span uk-icon="icon: cart" class="uk-icon"></span>
+                            <span class="uk-badge cart-count">3</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"><span uk-icon="icon: user" class="uk-icon"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-4">
+        {{content}}
+    </main>
+
+    <footer data-aos="fade-up">
+        <div class="footer-container" data-aos="fade-up" data-aos-delay="0">
+            <div class="footer-section">
+                <h4>Về J97 SHOP</h4>
+                <ul>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Hỗ trợ khách hàng</h4>
+                <ul>
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Chính sách bảo hành</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Kết nối với chúng tôi</h4>
+                <ul class="social-media">
+                    <li>
+                        <a href="#"><img src="../image/fb.webp" alt="Facebook" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="../image/zalo.webp" alt="Zalo" /></a>
+                    </li>
+                    <li>
+                        <a href="#"><img src="../image/tt.webp" alt="Tiktok" /></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 J97 SHOP. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init();
+    </script>
+    <script src="../javascript/header_reponsive.js"></script>
+</body>
+</html>

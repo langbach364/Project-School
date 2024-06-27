@@ -7,7 +7,7 @@ WORKDIR /Documents/backend/
 COPY ./backend/wait_mysql.sh .
 RUN chmod +x wait_mysql.sh
 
-COPY ./backend/start.sh .
+COPY ./backend/start_sources.sh .
 WORKDIR /Documents/backend/Connect_database
 COPY ./backend/Connect_database/. .
 RUN go mod tidy

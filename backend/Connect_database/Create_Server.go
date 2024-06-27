@@ -60,13 +60,14 @@ func Router_login(router *http.ServeMux) {
 				err = json.Unmarshal(body, &data)
 				check_err(err)
 
-				check := check_login(data.Username, data.Email, data.Password)
-				response := map[string]bool{
+				check, status := check_login(data.Username, data.Email, data.Password)
+				response := map[string]interface{}{
 					"success": check,
+					"status":  status,
 				}
 				json.NewEncoder(w).Encode(&response)
 			}
-		case "GET":
+		default:
 			fmt.Println("Method is not used")
 		}
 	})
@@ -89,15 +90,96 @@ func Router_register(router *http.ServeMux) {
 				"status":  status,
 			}
 			json.NewEncoder(w).Encode(&response)
-		case "GET":
+		default:
 			fmt.Println("Method is not used")
 		}
 	})
 }
 
-func muxtiplexer_router(router *http.ServeMux) {
+func Router_Email(router *http.ServeMux) {
+	router.HandleFunc("/send_code", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		switch r.Method {
+		case "POST":
+			body, err := io.ReadAll(r.Body)
+			check_err(err)
+
+			var data sender
+			err = json.Unmarshal(body, &data)
+			check_err(err)
+
+			check, status := Send_Email(data.Email_sender, data.Password_sender, data.Email_recevier)
+			response := map[string]interface{}{
+				"success": check,
+				"status":  status,
+			}
+			json.NewEncoder(w).Encode(&response)
+		default:
+			fmt.Println("Method is not used")
+		}
+	})
+}
+
+func Router_verify_email(router *http.ServeMux) {
+	router.HandleFunc("/verify_code", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		switch r.Method {
+		case "POST":
+			body, err := io.ReadAll(r.Body)
+			check_err(err)
+
+			var data check_code
+			err = json.Unmarshal(body, &data)
+			check_err(err)
+
+			check, status := verify_email(data.Email, data.Code)
+			response := map[string]interface{}{
+				"success": check,
+				"status":  status,
+			}
+			json.NewEncoder(w).Encode(&response)
+		default:
+			fmt.Println("Method is not used")
+		}
+	})
+}
+
+func Router_encode_data(router *http.ServeMux) {
+	router.HandleFunc("/encode_data", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		switch r.Method {
+		case "POST":
+			body, err := io.ReadAll(r.Body)
+			check_err(err)
+
+			var data encode_passwd
+			err = json.Unmarshal(body, &data)
+			check_err(err)
+
+			
+			response := map[string]interface{}{
+				"success": true,
+				"status":  "success",
+				"data":    encode_data(data.Email, data.Password, 2),
+			}
+			json.NewEncoder(w).Encode(&response)
+
+		default:
+			fmt.Println("Method is not used")
+		}
+	})
+}
+
+func Add_Router(router *http.ServeMux) {
 	Router_login(router)
 	Router_register(router)
+	Router_Email(router)
+	Router_verify_email(router)
+	Router_encode_data(router)
+}
+
+func muxtiplexer_router(router *http.ServeMux) {
+	Add_Router(router)
 
 	dbInfo_owner, err := Connect_owner()
 	check, status := check_error_connect_database(dbInfo_owner)
@@ -111,8 +193,6 @@ func muxtiplexer_router(router *http.ServeMux) {
 	router.HandleFunc("/delete", delete_Handler(dbInfo_owner))
 	router.HandleFunc("/insert", insert_Handler(dbInfo_owner))
 	router.HandleFunc("/update", update_Handler(dbInfo_owner))
-	router.HandleFunc("/check_session", session_account())
-	router.HandleFunc("/send_code", send_code())
 }
 
 func Create_server() {

@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+	"log"
 	"math/rand"
 	"time"
 
@@ -10,7 +12,7 @@ import (
 var codeStore = make(map[string]string)
 var codeExpiry = make(map[string]time.Time)
 
-const charset = "0123456789"
+const charset = "234789adfghiSWXYZ"
 const tokenLength = 6
 
 var seededRandPkg *rand.Rand = rand.New(rand.NewSource(time.Now().UnixNano()))
@@ -27,34 +29,49 @@ func randomToken(length int) string {
 	return StringWithCharset(length, charset)
 }
 
-func Send_Email(sender string, password string, recevier string) {
+func Send_Email(sender string, password string, receiver string) (bool, string) {
 	m := mail.NewMessage()
 	token := randomToken(tokenLength)
 
 	m.SetHeader("From", sender)
-	m.SetHeader("To", recevier)
-	m.SetBody("text/plain", token)
+	m.SetHeader("To", receiver)
+	m.SetBody("text/plain", fmt.Sprintf("mã xác nhận của bạn là: %s", token))
 	m.SetHeader("Subject", "Cảm ơn bạn đã xem")
 
 	d := mail.NewDialer("smtp.gmail.com", 587, sender, password)
 	err := d.DialAndSend(m)
-	check_err(err)
+	if err != nil {
+		log.Printf("Failed to send email: %v", err)
+		log.Printf("\n Sender :%s", sender)
+		log.Printf("\n Password:%s", password)
+		log.Printf("\n Receiver:%s", receiver)
 
-	codeStore[recevier] = token
-	codeExpiry[recevier] = time.Now().Add(5 * time.Minute)
+		return false, "Lỗi kết nối email từ thượng nguồn"
+	}
+
+	codeStore[receiver] = token
+	codeExpiry[receiver] = time.Now().Add(5 * time.Minute)
+	return true, "Đã lưu trữ mã xác nhận vào thượng nguồn"
 }
 
-func verify_code(email string, code string) bool {
+func verify_email(email string, code string) (bool, string) {
 	storedCode, ok := codeStore[email]
 	if !ok {
-		return false
+		return false, "Lỗi mã lưu trữ mã xác nhận"
 	}
 
 	if time.Now().After(codeExpiry[email]) {
 		delete(codeStore, email)
 		delete(codeExpiry, email)
-		return false
+		return false, "Mã xác nhận đã hết hạn"
 	}
 
-	return storedCode == code
+	if storedCode != code {
+		return false, "Mã xác nhận không đúng"
+	}
+
+	delete(codeStore, email)
+	delete(codeExpiry, email)
+
+	return true, "Xác nhận thành công"
 }

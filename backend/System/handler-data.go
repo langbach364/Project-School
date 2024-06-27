@@ -96,9 +96,9 @@ func select_product(input string) ([]string, string) {
 
 func ratting_products(evaluate RattingPayload) (bool, string) {
 	query := fmt.Sprintf(
-        "INSERT INTO Ratting (product_id, user_id, start, comment) VALUES (%d, %d, %f, '%s')",
-        evaluate.Product_id, evaluate.User_id, evaluate.Start, evaluate.Comment,
-    )
+		"INSERT INTO Ratting (product_id, user_id, start, comment) VALUES (%d, %d, %f, '%s')",
+		evaluate.Product_id, evaluate.User_id, evaluate.Start, evaluate.Comment,
+	)
 	payload := map[string]interface{}{
 		"query": query,
 	}
@@ -109,4 +109,56 @@ func ratting_products(evaluate RattingPayload) (bool, string) {
 		return false, "Thêm dữ liệu thất bại kiểm tra lại thuộc tính"
 	}
 	return true, "Thêm thanh công"
+}
+
+func send_email(sender string, password string, receiver string) (bool, string) {
+	payload := map[string]string{
+		"sender":   sender,
+		"password": password,
+		"receiver": receiver,
+	}
+	responseData, err := sendPostRequest("http://127.0.0.1:5050/send_code", payload)
+	check_err(err)
+
+	if responseData["success"] != true {
+		return false, "Gửi email thất bại"
+	}
+	return true, "Gửi email thành công"
+}
+
+func verify_email(email string, code string) (bool, string) {
+	payload := map[string]string{
+		"email": email,
+		"code":  code,
+	}
+	responseData, err := sendPostRequest("http://127.0.0.1:5050/verify_code", payload)
+	check_err(err)
+
+	if responseData["success"] != true {
+		return false, "Xác thực email thất bại"
+	}
+	return true, "Xác thực email thành công"
+}
+
+func change_password(email string, newPassword string) (bool, string) {
+	payload_passwd := map[string]string{
+		"email":    email,
+		"password": newPassword,
+	}
+
+	Password, err := sendPostRequest("http://127.0.0.1:5050/encode_data", payload_passwd)
+	check_err(err)
+
+	query := fmt.Sprintf("UPDATE Users SET password = '%s' WHERE email = '%s'", Password["data"], email)
+
+	payload := map[string]string{
+		"query": query,
+	}
+	responseData, err := sendPostRequest("http://127.0.0.1:5050/update", payload)
+	check_err(err)
+
+	if responseData["success"] != true {
+		return false, "Thay đổi mật khẩu thất bại"
+	}
+	return true, "Thay đổi mật khẩu thành công"
 }

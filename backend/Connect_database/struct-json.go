@@ -1,15 +1,13 @@
 package main
 
-import ()
-
 type query struct {
 	Query string `json:"query"`
 }
 
-type send_email struct {
-	Email_sender    string `json:"email_sender"`
+type sender struct {
+	Email_sender    string `json:"sender"`
 	Password_sender string `json:"password"`
-	Email_recevier  string `json:"email_receiver"`
+	Email_recevier  string `json:"receiver"`
 }
 
 type check_code struct {
@@ -21,4 +19,9 @@ type data_user struct {
 	Username string `json:"username"`
 	Password string `json:"password"`
 	Email    string `json:"email"`
+}
+
+type encode_passwd struct {
+	Email    string `json:"email"`
+	Password string `json:"password"`
 }
