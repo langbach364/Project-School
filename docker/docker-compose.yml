@@ -62,7 +62,7 @@ services:
       - certs:/etc/letsencrypt
       - certs-data:/data/letsencrypt
       - /tmp/certbot:/tmp/certbot
-    entrypoint: "/bin/sh -c 'certbot certonly --webroot --webroot-path=/data/letsencrypt -d seller-technology.langbach.io.vn && touch /tmp/certbot/done'"
+    entrypoint: "/bin/sh -c 'certbot certonly --webroot --webroot-path=/data/letsencrypt -d seller-technology.langbach.io.vn --non-interactive --agree-tos --email your-email@example.com && touch /tmp/certbot/done'"
     networks:
       my_network:
         ipv4_address: 172.21.0.5
@@ -71,6 +71,7 @@ volumes:
   mysql_data:
   certs:
   certs-data:
+
 
 networks:
   my_network:
