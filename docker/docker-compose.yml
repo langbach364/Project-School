@@ -18,7 +18,7 @@ services:
       dockerfile: ./docker/dockerfile/be.dockerfile
     container_name: my_be_container
     ports:
-      - "5050:5050"
+      - "8080:8080"
     depends_on:
       - db
     networks:
@@ -31,7 +31,8 @@ services:
       dockerfile: ./dockerfile/nginx.dockerfile
     container_name: my_nginx_container
     ports:
-      - "8080:8080"
+      - "80:80"
+      - "8433:8433"
     depends_on:
       - be
       - certbot-init
@@ -62,8 +63,8 @@ services:
       - certs:/etc/letsencrypt
       - certs-data:/data/letsencrypt
       - /tmp/certbot:/tmp/certbot
-    entrypoint: "/bin/sh -c 'certbot certonly --webroot --webroot-path=/data/letsencrypt -d seller-technology.langbach.io.vn --non-interactive --agree-tos --email bachlang364@gmail.com && touch /tmp/certbot/done'"
-    networks:
+  command: >
+    sh -c "certbot certonly --webroot -w /data/letsencrypt -d seller-technology.langbach.io.vn --email bachlang364@gmail.com --agree-tos --force-renewal --non-interactive && touch /tmp/certbot/done" networks:
       my_network:
         ipv4_address: 172.21.0.5
 
