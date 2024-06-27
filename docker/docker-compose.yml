@@ -31,7 +31,7 @@ services:
       dockerfile: ./dockerfile/nginx.dockerfile
     container_name: my_nginx_container
     ports:
-      - "80:80"
+      - "8080:80"
       - "8433:8433"
     depends_on:
       - be
