@@ -63,8 +63,9 @@ services:
       - certs:/etc/letsencrypt
       - certs-data:/data/letsencrypt
       - /tmp/certbot:/tmp/certbot
-  command: >
-    sh -c "certbot certonly --webroot -w /data/letsencrypt -d seller-technology.langbach.io.vn --email bachlang364@gmail.com --agree-tos --force-renewal --non-interactive && touch /tmp/certbot/done" networks:
+    command: >
+      sh -c "certbot certonly --webroot -w /data/letsencrypt  -d seller-technology.langbach.io.vn  --email bachlang364@gmail.com --agree-tos  --force-renewal --non-interactive  && touch /tmp/certbot/done"
+    networks:
       my_network:
         ipv4_address: 172.21.0.5
 
