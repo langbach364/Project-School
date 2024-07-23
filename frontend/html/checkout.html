@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thanh toán - J97 SHOP</title>
+    <link rel="stylesheet" href="../css/checkout.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.22/css/uikit.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="icon" type="image/x-icon" href="../image/12.png" />
+  </head>
+  <body>
+    <div class="uk-container animate__animated animate__fadeIn">
+      <h1
+        class="uk-heading-medium uk-text-center uk-margin-large-top animate__animated animate__bounceInDown"
+      >
+        Thanh toán
+      </h1>
+
+      <div class="uk-grid-match uk-child-width-1-2@m" uk-grid>
+        <div class="animate__animated animate__slideInLeft">
+          <div class="uk-card uk-card-default uk-card-body">
+            <h3 class="uk-card-title">Thông tin thanh toán</h3>
+            <form id="checkout-form" class="uk-form-stacked">
+              <div class="uk-margin">
+                <label class="uk-form-label" for="name"
+                  ><span uk-icon="icon: user"></span> Họ và tên:</label
+                >
+                <div class="uk-form-controls">
+                  <input class="uk-input" type="text" id="name" required />
+                </div>
+              </div>
+              <div class="uk-margin">
+                <label class="uk-form-label" for="email"
+                  ><span uk-icon="icon: mail"></span> Email:</label
+                >
+                <div class="uk-form-controls">
+                  <input class="uk-input" type="email" id="email" required />
+                </div>
+              </div>
+              <div class="uk-margin">
+                <label class="uk-form-label" for="address"
+                  ><span uk-icon="icon: location"></span> Địa chỉ:</label
+                >
+                <div class="uk-form-controls">
+                  <textarea
+                    class="uk-textarea"
+                    id="address"
+                    rows="3"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+              <div class="uk-margin">
+                <label class="uk-form-label" for="phone"
+                  ><span uk-icon="icon: phone"></span> Số điện thoại:</label
+                >
+                <div class="uk-form-controls">
+                  <input
+                    class="uk-input"
+                    type="tel"
+                    id="phone"
+                    required
+                    pattern="\d{10}"
+                    maxlength="10"
+                    title="Vui lòng nhập đúng 10 chữ số"
+                  />
+                </div>
+              </div>
+              <div class="uk-margin">
+                <label class="uk-form-label" for="category-select"
+                  ><span uk-icon="icon: list"></span> Chọn danh mục:</label
+                >
+                <div class="uk-form-controls">
+                  <select class="uk-select" id="category-select">
+                    <option value="">Chọn danh mục</option>
+                  </select>
+                </div>
+              </div>
+              <div class="uk-margin">
+                <label class="uk-form-label" for="brand-select"
+                  ><span uk-icon="icon: tag"></span> Chọn thương hiệu:</label
+                >
+                <div class="uk-form-controls">
+                  <select class="uk-select" id="brand-select">
+                    <option value="">Chọn thương hiệu</option>
+                  </select>
+                </div>
+              </div>
+              <div class="uk-margin">
+                <label class="uk-form-label" for="coupon-select"
+                  ><span uk-icon="icon: ticket"></span> Chọn mã giảm giá:</label
+                >
+                <div class="uk-form-controls">
+                  <select class="uk-select" id="coupon-select">
+                    <option value="">Chọn mã giảm giá</option>
+                  </select>
+                </div>
+                <p
+                  id="discount-message"
+                  class="uk-text-small uk-margin-small-top animate__animated"
+                ></p>
+              </div>
+              <div class="form-group">
+                <label for="bank">Ngân hàng:</label>
+                <div class="custom-select-container">
+                  <div class="custom-select" id="selected-bank">
+                    <div style="display: flex; align-items: center">
+                      <img src="../image/momo.jpg" alt="Bank Logo" />
+                      <span>MoMo</span>
+                    </div>
+                    <div class="arrow-down"></div>
+                  </div>
+                  <div class="custom-options" id="bank-options">
+                    <div data-value="MoMo" data-logo="../image/momo.jpg">
+                      <img src="../image/momo.jpg" alt="MoMo" />
+                      <span>MoMo</span>
+                    </div>
+                    <div data-value="VCB" data-logo="../image/vcb.png">
+                      <img src="../image/vcb.png" alt="Vietcombank" />
+                      <span>Vietcombank</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="Qr" id="qr-section">
+                <img id="QR" src="../image/Qr.jpg" alt="QR Code" />
+              </div>
+
+              <button
+                class="uk-button uk-button-primary uk-width-1-1 ripple-effect"
+                type="submit"
+              >
+                Xác nhận đặt hàng
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="animate__animated animate__slideInRight">
+          <div class="uk-card uk-card-default uk-card-body">
+            <h3 class="uk-card-title">Tóm tắt đơn hàng</h3>
+            <div
+              id="cart-summary"
+              uk-accordion="multiple: true; active: .uk-open"
+            >
+              <div id="cart-details">
+                <a class="uk-accordion-title" href="#">Chi tiết đơn hàng</a>
+                <div class="uk-accordion-content"></div>
+              </div>
+              <div id="cart-total">
+                <a class="uk-accordion-title" href="#">Tổng cộng</a>
+                <div class="uk-accordion-content"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="loading-spinner"
+      class="uk-overlay uk-overlay-default uk-position-cover"
+      hidden
+    >
+      <div class="uk-position-center">
+        <span uk-spinner="ratio: 3"></span>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.22/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.22/js/uikit-icons.min.js"></script>
+    <script type="module" src="../javascript/checkout.js"></script>
+    <script src="../call-api/node_modules/axios/dist/axios.min.js"></script>
+  </body>
+</html>

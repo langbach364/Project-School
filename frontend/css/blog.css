@@ -1,0 +1,71 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif !important;
+}
+
+.uk-modal-dialog {
+    width: auto !important;
+}
+
+.blog-card {
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.blog-card, .blog-card * {
+    font-family: Arial, sans-serif !important;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.blog-card .uk-card-media-top img {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover .uk-card-media-top img {
+    transform: scale(1.05);
+}
+
+.blog-card .uk-card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.blog-card .uk-label {
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    border-radius: 20px;
+}
+
+.blog-card .uk-button-text {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.blog-card .uk-button-text:hover {
+    text-decoration: none;
+}
+
+.uk-pagination > .uk-active > * {
+    background-color: #4a90e2;
+    color: white;
+}
+
+@media (max-width: 960px) {
+    .uk-child-width-1-3\@m > * {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+.uk-container {
+    margin-top: 160px;
+}
+
