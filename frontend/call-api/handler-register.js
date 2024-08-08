@@ -38,7 +38,7 @@ function handleRegister(event) {
   if (!check) {
     showToast("Mật khẩu không trùng khớp");
   } else {
-    axios.post("https://testapi.langbach.io.vn/register", JSON.stringify(data), {
+    axios.post("https://api.langbach.io.vn/register", JSON.stringify(data), {
       headers: {
         'Content-Type': 'application/json'
       },

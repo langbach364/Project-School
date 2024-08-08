@@ -10,7 +10,7 @@ function handleForget(event) {
         showToast("Vui lòng nhập email");
     } else {
     sessionStorage.setItem("forget_password_email", email);
-    axios.post("https://testapi.langbach.io.vn/send_code", JSON.stringify(data), {
+    axios.post("https://api.langbach.io.vn/send_code", JSON.stringify(data), {
         headers: {
             'Content-Type': 'application/json'
         }

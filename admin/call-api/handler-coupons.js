@@ -12,7 +12,7 @@ export function handleCoupons() {
       
     };
 
-    axios.post("https://testapi.langbach.io.vn/get_data", JSON.stringify(data), {
+    axios.post("https://api.langbach.io.vn/get_data", JSON.stringify(data), {
       headers: { "Content-Type": "application/json" },
     })
     .then((response) => {
@@ -39,7 +39,7 @@ export function handleDeleteCoupon(couponId) {
       primaryKey: couponId,
     };
 
-    axios.post("https://testapi.langbach.io.vn/delete_data", JSON.stringify(data), {
+    axios.post("https://api.langbach.io.vn/delete_data", JSON.stringify(data), {
       headers: { "Content-Type": "application/json" },
     })
     .then((response) => {
@@ -64,7 +64,7 @@ export function handleAddCoupon(couponData) {
       condition: "coupon_id",
     };
 
-    axios.post("https://testapi.langbach.io.vn/insert_data", JSON.stringify(data), {
+    axios.post("https://api.langbach.io.vn/insert_data", JSON.stringify(data), {
       headers: { "Content-Type": "application/json" },
     })
     .then((response) => {
@@ -89,7 +89,7 @@ export function handleUpdateCoupon(couponData) {
       condition: "coupon_id",
     };
 
-    axios.post("https://testapi.langbach.io.vn/update_data", JSON.stringify(data), {
+    axios.post("https://api.langbach.io.vn/update_data", JSON.stringify(data), {
       headers: { "Content-Type": "application/json" },
     })
     .then((response) => {

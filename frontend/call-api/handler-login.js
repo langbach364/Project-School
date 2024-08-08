@@ -18,7 +18,7 @@ function handleLogin(event) {
     password: password,
   };
 
-  axios.post("https://testapi.langbach.io.vn/login", JSON.stringify(data), {
+  axios.post("https://api.langbach.io.vn/login", JSON.stringify(data), {
     headers: {
       'Content-Type': 'application/json'
     }

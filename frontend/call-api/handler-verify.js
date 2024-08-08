@@ -7,7 +7,7 @@ function handleVerify(event) {
         code: code
     };
 
-    axios.post("https://testapi.langbach.io.vn/verify_code", JSON.stringify(data), {
+    axios.post("https://api.langbach.io.vn/verify_code", JSON.stringify(data), {
         headers: {
             'Content-Type': 'application/json'
         }

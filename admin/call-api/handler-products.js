@@ -17,7 +17,7 @@ export function handleProducts() {
     };
     
     axios
-      .post("https://testapi.langbach.io.vn/get_data", JSON.stringify(data), {
+      .post("https://api.langbach.io.vn/get_data", JSON.stringify(data), {
         headers: {
           "Content-Type": "application/json",
         },
@@ -53,7 +53,7 @@ export function handleDeleteProduct(productId) {
     };
     
     axios
-      .post("https://testapi.langbach.io.vn/delete_data", JSON.stringify(data), {
+      .post("https://api.langbach.io.vn/delete_data", JSON.stringify(data), {
         headers: { "Content-Type": "application/json" },
       })
       .then((response) => {
@@ -82,7 +82,7 @@ export function handleAddProduct(productData) {
     console.log("Dữ liệu sản phẩm để thêm:", data);
     console.log("Dữ liệu sản phẩm để thêm:", JSON.stringify(data));
     axios
-      .post("https://testapi.langbach.io.vn/insert_data", JSON.stringify(data), {
+      .post("https://api.langbach.io.vn/insert_data", JSON.stringify(data), {
         headers: { "Content-Type": "application/json" },
       })
       .then((response) => {
@@ -107,7 +107,7 @@ export function handleAddImage(imageFile, productId) {
     formData.append("product_id", productId);
 
     axios
-      .post("https://testapi.langbach.io.vn/upload_image", formData, {
+      .post("https://api.langbach.io.vn/upload_image", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((response) => {

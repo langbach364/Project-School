@@ -9,7 +9,7 @@ export function handleUsers() {
     return new Promise((resolve, reject) => {
         const data = { nameList: "Infomation", attribute: "*" };
 
-        axios.post("https://testapi.langbach.io.vn/get_data", JSON.stringify(data), {
+        axios.post("https://api.langbach.io.vn/get_data", JSON.stringify(data), {
             headers: { 'Content-Type': 'application/json' }
         })
         .then(response => {
@@ -39,7 +39,7 @@ export function handleDeleteUsers(userId) {
             primaryKey: userId 
         };
 
-        axios.post("https://testapi.langbach.io.vn/delete_data", JSON.stringify(data), {
+        axios.post("https://api.langbach.io.vn/delete_data", JSON.stringify(data), {
             headers: { 'Content-Type': 'application/json' }
         })
         .then(response => {

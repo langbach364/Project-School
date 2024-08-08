@@ -12,7 +12,7 @@ function handleChange(event) {
     var check = password === repeatPassword;
     
     if (check) {
-    axios.post("https://testapi.langbach.io.vn/change_password", JSON.stringify(data), {
+    axios.post("https://api.langbach.io.vn/change_password", JSON.stringify(data), {
         headers: {
             'Content-Type': 'application/json'
         }

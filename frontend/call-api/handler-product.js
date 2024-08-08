@@ -8,7 +8,7 @@ export function handleProducts() {
             attribute: "*"
         };
 
-        axios.post("https://testapi.langbach.io.vn/get_data", JSON.stringify(data), {
+        axios.post("https://api.langbach.io.vn/get_data", JSON.stringify(data), {
             headers: {
                 'Content-Type': 'application/json'
             }

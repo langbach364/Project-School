@@ -37,7 +37,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=my_network"
       - "traefik.http.routers.be.entrypoints=websecure"
-      - "traefik.http.routers.be.rule=Host(`testapi.langbach.io.vn`) && (PathPrefix(`/login`) || PathPrefix(`/register`) || PathPrefix(`/send_code`) || PathPrefix(`/verify_code`) || PathPrefix(`/change_password`) || PathPrefix(`/get_data`) || PathPrefix(`/delete_data`) || PathPrefix(`/insert_data`) || PathPrefix(`/upload_image`) || PathPrefix(`/update_data`))"
+      - "traefik.http.routers.be.rule=Host(`api.langbach.io.vn`) && (PathPrefix(`/login`) || PathPrefix(`/register`) || PathPrefix(`/send_code`) || PathPrefix(`/verify_code`) || PathPrefix(`/change_password`) || PathPrefix(`/get_data`) || PathPrefix(`/delete_data`) || PathPrefix(`/insert_data`) || PathPrefix(`/upload_image`) || PathPrefix(`/update_data`))"
       - "traefik.http.routers.be.tls.certresolver=lets-encrypt"
       - "traefik.http.services.be.loadbalancer.server.port=8080"
     depends_on:
@@ -78,7 +78,7 @@ services:
       - "traefik.enable=true"
       - "traefik.docker.network=my_network"
       - "traefik.http.routers.ad.entrypoints=websecure"
-      - "traefik.http.routers.ad.rule=Host(`testAdmin.langbach.io.vn`)"
+      - "traefik.http.routers.ad.rule=Host(`admin.langbach.io.vn`)"
       - "traefik.http.routers.ad.tls.certresolver=lets-encrypt"
       - "traefik.http.services.ad.loadbalancer.server.port=5505"
     networks:

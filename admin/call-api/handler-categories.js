@@ -9,7 +9,7 @@ export function handleCategories() {
     return new Promise((resolve, reject) => {
         const data = { nameList: "Define_categories", attribute: "*" };
 
-        axios.post("https://testapi.langbach.io.vn/get_data", JSON.stringify(data), {
+        axios.post("https://api.langbach.io.vn/get_data", JSON.stringify(data), {
             headers: { 'Content-Type': 'application/json' }
         })
         .then(response => {
@@ -47,7 +47,7 @@ export function handleDeleteCategory(categoryName) {
             primaryKey: categoryName 
         };
 
-        axios.post("https://testapi.langbach.io.vn/delete_data", JSON.stringify(data), {
+        axios.post("https://api.langbach.io.vn/delete_data", JSON.stringify(data), {
             headers: { 'Content-Type': 'application/json' }
         })
         .then(response => {
