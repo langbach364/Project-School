@@ -1,0 +1,436 @@
+:root {
+  --primary-color: #070707;
+  --secondary-color: #2c3e50;
+  --accent-color: #e74c3c;
+  --text-color: #333333;
+  --background-color: #ecf0f1;
+  --card-background: #ffffff;
+}
+
+html {
+  background-color: var(--background-color);
+}
+
+body {
+  font-family: Arial, sans-serif !important;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* Header styles */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.uk-navbar-container {
+  background-color: #333;
+  color: #fff;
+}
+
+.uk-navbar-nav > li > a {
+  color: #fff;
+}
+
+.uk-navbar-nav > li > a:hover,
+.uk-navbar-nav > li > a.active {
+  color: #686666;
+}
+
+.uk-logo {
+  color: #fff;
+  font-weight: bold;
+}
+
+.uk-logo:hover {
+  color: #ddd;
+}
+
+/* Main content styles */
+main {
+  max-width: 1200px;
+  margin: 1rem auto;
+  padding: 0 2rem;
+}
+
+.filter-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  background-color: var(--card-background);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  margin-top: 160px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.filter-section,
+.filter-section * {
+  font-family: Arial, sans-serif !important;
+}
+
+.filter-section label {
+  font-weight: 600;
+  color: var(--secondary-color);
+}
+
+.filter-section select,
+.filter-section input[type="text"] {
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+.filter-section select:focus,
+.filter-section input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.filter-section button,
+.discount-card .buy-now,
+.show-more,
+.show-less {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.filter-section button:hover,
+.discount-card .buy-now:hover,
+.show-more:hover,
+.show-less:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.discount-section {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 2rem !important;
+}
+
+.discount-card,
+.discount-card * {
+  font-family: Arial, sans-serif !important;
+}
+
+.discount-card {
+  display: flex;
+  align-items: stretch;
+  background-color: var(--card-background);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.discount-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.discount-card-info {
+  flex: 1;
+  padding: 1.5rem;
+  background-color: var(--secondary-color);
+  color: #ffffff;
+}
+
+.discount-card-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: #ddd;
+}
+
+.discount-card-info p {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+.discount-card-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem;
+  background-color: var(--accent-color);
+}
+
+.discount-card-actions .buy-now {
+  background-color: #ffffff;
+  color: var(--accent-color);
+}
+
+.discount-card-actions .buy-now:hover {
+  background-color: #f8f8f8;
+}
+
+.discount-codes {
+  flex: 2;
+  padding: 1.5rem;
+}
+
+.discount-codes h5 {
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+}
+
+.discount-codes ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.discount-codes li {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.discount-codes p {
+  border: 1px solid #060606; /* Thêm viền cho từng mã giảm giá */
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  width: 20%;
+}
+.discount-codes li.highlight {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Footer styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-section,
+.footer-section * {
+  font-family: Arial, sans-serif !important;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 10px;
+  min-width: 200px;
+}
+
+.footer-section h4 {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.social-media {
+  display: flex;
+}
+
+.social-media li {
+  margin-right: 10px;
+  padding: 0 10px;
+}
+
+.social-media li a img {
+  width: 24px !important;
+  height: 24px !important;
+  font-size: 24px !important;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #444;
+  margin-top: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .filter-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-section select,
+  .filter-section input[type="text"],
+  .filter-section button {
+    width: 100%;
+  }
+
+  .discount-card {
+    flex-direction: column;
+  }
+
+  .discount-card-info,
+  .discount-card-actions,
+  .discount-codes {
+    width: 100%;
+  }
+}
+
+/* Animation styles */
+.animate__animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+[data-aos] {
+  transition-duration: 1000ms;
+}
+
+/* Cart styles */
+.cart-icon {
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.cart-icon .cart-count {
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 1px 6px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 14px;
+}
+
+.table-responsive {
+  overflow-x: auto; /* Tạo khung cuộn ngang */
+}
+
+.cart-modal table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.cart-modal th,
+.cart-modal td {
+  padding: 10px;
+  text-align: left;
+  word-wrap: break-word;
+  white-space: nowrap; /* Ngăn chặn xuống dòng tự động */
+  border: 1px solid #ccc;
+}
+
+.toast-success {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+.toast-success .toast-title {
+  color: #fff !important;
+}
+
+.toast-success .toast-message {
+  color: #fff !important;
+}
+
+.toast-success .toast-progress {
+  background-color: #fff !important;
+}
+
+.toast-custom-position {
+  top: 60px !important; /* Điều chỉnh vị trí dưới biểu tượng giỏ hàng */
+  right: 80px !important;
+  z-index: 999; /* Đảm bảo thông báo nằm dưới icon giỏ hàng */
+}
+
+@media (max-width: 768px) {
+  main {
+    margin-top: 250px;
+  }
+  .toast-custom-position {
+    top: 50px !important; /* Điều chỉnh vị trí dưới biểu tượng giỏ hàng */
+    right: 10px !important;
+  }
+}
+
+.cart-icon .cart-count {
+  top: -1px;
+  right: 0px;
+  font-size: 12px;
+}
+
+.cart-modal {
+  width: 100%;
+  padding: 10px;
+}
+
+.cart-modal .close-btn,
+.cart-modal .checkout-btn {
+  padding: 8px 16px;
+}
+
+/* Đảm bảo rằng các container cũng chiếm toàn bộ chiều rộng màn hình dưới 576px */
+.container,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl {
+  max-width: 100% !important;
+}
+#pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

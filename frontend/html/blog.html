@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>J97 Shop Blog</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="../image/12.png" />
+    <link rel="stylesheet" href="../css/blog.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.22/css/uikit.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../css/header-reponsive.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />2
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.5/pagination.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+  </head>
+  <body>
+    <header
+      class="uk-sticky uk-sticky-fixed animate__animated animate__fadeInDown"
+      data-aos="fade-down"
+    >
+      <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+        <div class="uk-navbar-left">
+          <a href="./home.html" class="uk-navbar-item uk-logo">J97 Shop</a>
+        </div>
+        <div class="uk-navbar-center">
+          <ul class="uk-navbar-nav">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./product.html">Product</a></li>
+            <li><a href="./blog.html" class="active">Blog</a></li>
+            <li><a href="./discount.html">Discount</a></li>
+          </ul>
+        </div>
+        <div class="uk-navbar-right">
+          <ul class="uk-navbar-nav">
+            <li>
+              <a href="#" uk-toggle="target: #cartModal">
+                <span uk-icon="icon: cart" class="uk-icon"></span>
+                <span class="uk-badge cart-count">0</span>
+              </a>
+            </li>
+            <li>
+              <a href="#"><span uk-icon="icon: user" class="uk-icon"></span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="menu-icon uk-navbar-right">
+          <a href="javascript:void(0);" uk-icon="icon: menu"></a>
+        </div>
+        <div class="uk-navbar-dropdown">
+          <ul class="uk-nav uk-dropdown-nav">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./product.html">Product</a></li>
+            <li><a href="./blog.html" class="active">Blog</a></li>
+            <li><a href="./discount.html">Discount</a></li>
+            <li>
+              <a href="#" uk-toggle="target: #cartModal">
+                <span uk-icon="icon: cart" class="uk-icon"></span>
+                <span class="uk-badge cart-count">0</span>
+              </a>
+            </li>
+            <li>
+              <a href="#"><span uk-icon="icon: user" class="uk-icon"></span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="uk-container">
+      <div
+        class="uk-grid uk-child-width-1-3@m uk-grid-match uk-grid-large"
+        uk-grid
+      >
+        <!-- Bài viết 1 -->
+        <div data-aos="fade-up">
+          <div class="uk-card uk-card-default uk-card-hover blog-card">
+            <div class="uk-card-media-top">
+              <a href="#" ></a>
+            </div>
+            <div class="uk-card-body">
+              <span class="uk-label uk-label-success">AI</span>
+              <h3 class="uk-card-title uk-margin-small-top">
+                Trí tuệ nhân tạo năm 2024
+              </h3>
+              <p class="uk-text-muted uk-text-small">
+                Đăng bởi John Doe | 15 Tháng 1, 2024
+              </p>
+              <p>
+                Tổng quan về sự phát triển của AI và ứng dụng trong cuộc sống...
+              </p>
+              <a href="https://tuoitre.vn/3-dot-pha-tri-tue-nhan-tao-dang-so-nhat-nam-2024-20240102090331002.htm" class="uk-button uk-button-text"
+                >Đọc thêm <span uk-icon="arrow-right"></span
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bài viết 2 -->
+        <div data-aos="fade-up" data-aos-delay="200">
+          <div class="uk-card uk-card-default uk-card-hover blog-card">
+            <div class="uk-card-media-top">
+              <a href="#" ></a>
+            </div>
+            <div class="uk-card-body">
+              <span class="uk-label uk-label-warning">5G</span>
+              <h3 class="uk-card-title uk-margin-small-top">
+                Công nghệ 5G và tương lai
+              </h3>
+              <p class="uk-text-muted uk-text-small">
+                Đăng bởi Jane Smith | 20 Tháng 1, 2024
+              </p>
+              <p>
+                Tìm hiểu về công nghệ 5G và tác động của nó đến cuộc sống...
+              </p>
+              <a href="https://vietnamnet.vn/cong-nghe-5g-tuong-lai-va-suc-manh-than-ky-cua-nganh-vien-thong-683191.html" class="uk-button uk-button-text"
+                >Đọc thêm <span uk-icon="arrow-right"></span
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bài viết 3 -->
+        <div data-aos="fade-up" data-aos-delay="400">
+          <div class="uk-card uk-card-default uk-card-hover blog-card">
+            <div class="uk-card-media-top">
+              <a href="#" ></a>
+            </div>
+            <div class="uk-card-body">
+              <span class="uk-label uk-label-danger">Blockchain</span>
+              <h3 class="uk-card-title uk-margin-small-top">
+                Blockchain và tiền điện tử
+              </h3>
+              <p class="uk-text-muted uk-text-small">
+                Đăng bởi Mike Johnson | 25 Tháng 1, 2024
+              </p>
+              <p>Khám phá công nghệ blockchain và xu hướng tiền điện tử...</p>
+              <a href="https://academy.binance.com/vi/articles/difference-between-blockchain-and-bitcoin" class="uk-button uk-button-text"
+                >Đọc thêm <span uk-icon="arrow-right"></span
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="uk-margin-large-top uk-text-center">
+        <ul class="uk-pagination uk-flex-center" uk-margin>
+          <li>
+            <a href="#"><span uk-pagination-previous></span></a>
+          </li>
+          <li><a href="#">1</a></li>
+          <li class="uk-active"><span>2</span></li>
+          <li><a href="#">3</a></li>
+          <li>
+            <a href="#"><span uk-pagination-next></span></a>
+          </li>
+        </ul>
+      </div>
+    </main>
+    <!-- Modal Giỏ hàng -->
+    <div id="cartModal" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h2 class="uk-modal-title">Giỏ hàng của bạn</h2>
+        <div class="table-responsive">
+          <table class="uk-table uk-table-divider">
+            <thead>
+              <tr>
+                <th>Tên sản phẩm</th>
+                <th>Thương hiệu</th>
+                <th>Danh mục</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Tổng</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody class="cart-items"></tbody>
+          </table>
+        </div>
+        <p class="uk-text-right">
+          <button
+            class="uk-button uk-button-default uk-modal-close"
+            type="button"
+          >
+            Đóng
+          </button>
+          <button
+            class="uk-button uk-button-primary checkout-btn"
+            type="button"
+          >
+            Thanh toán
+          </button>
+        </p>
+      </div>
+    </div>
+
+    <footer data-aos="fade-up">
+      <div class="footer-container" data-aos="fade-up" data-aos-delay="0">
+        <div class="footer-section">
+          <h4>Về J97 SHOP</h4>
+          <ul>
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">Liên hệ</a></li>
+            <li><a href="#">Chính sách bảo mật</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Hỗ trợ khách hàng</h4>
+          <ul>
+            <li><a href="#">Hướng dẫn mua hàng</a></li>
+            <li><a href="#">Chính sách đổi trả</a></li>
+            <li><a href="#">Chính sách bảo hành</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Kết nối với chúng tôi</h4>
+          <ul class="social-media">
+            <li>
+              <a href="https://www.facebook.com/profile.php?id=61564286459227&mibextid=ZbWKwL"><img src="../image/fb.webp" alt="Facebook" /></a>
+            </li>
+            <li>
+              <a href="https://zaloapp.com/qr/p/mhi359aakl8e?src=qr"><img src="../image/zalo.webp" alt="Zalo" /></a>
+            </li>
+            <li>
+              <a href="https://www.tiktok.com/@tho0335"><img src="../image/tt.webp" alt="Tiktok" /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 J97 SHOP. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.5/pagination.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.22/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.22/js/uikit-icons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="../javascript/notify.js"></script>
+    <script type="module" src="../javascript/blog.js"></script>
+    <script src="../javascript/reponsive/header_reponsive.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

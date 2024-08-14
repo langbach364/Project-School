@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - J97 Shop</title>
+    <link rel="icon" type="image/x-icon" href="../image/12.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.22/css/uikit.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+    <link rel="stylesheet" href="../css/home.css" />
+    <link rel="stylesheet" href="../css/header-reponsive.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header
+      class="uk-sticky uk-sticky-fixed animate__animated animate__fadeInDown"
+      data-aos="fade-down"
+    >
+      <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+        <div class="uk-navbar-left">
+          <a href="./home.html" class="uk-navbar-item uk-logo">J97 Shop</a>
+        </div>
+        <div class="uk-navbar-center">
+          <ul class="uk-navbar-nav">
+            <li><a href="./home.html" class="active">Home</a></li>
+            <li><a href="./product.html">Product</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./discount.html">Discount</a></li>
+          </ul>
+        </div>
+        <div class="uk-navbar-right">
+          <ul class="uk-navbar-nav">
+            <li>
+              <a href="#" uk-toggle="target: #cartModal">
+                <span uk-icon="icon: cart" class="uk-icon"></span>
+                <span class="uk-badge cart-count">0</span>
+              </a>
+            </li>
+            <li>
+              <a href="#"><span uk-icon="icon: user" class="uk-icon"></span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="menu-icon uk-navbar-right">
+          <a href="javascript:void(0);" uk-icon="icon: menu"></a>
+        </div>
+        <div class="uk-navbar-dropdown">
+          <ul class="uk-nav uk-dropdown-nav">
+            <li><a href="./home.html" class="active">Home</a></li>
+            <li><a href="./product.html">Product</a></li>
+            <li><a href="./blog.html">Blog</a></li>
+            <li><a href="./discount.html">Discount</a></li>
+            <li>
+              <a href="#" uk-toggle="target: #cartModal">
+                <span uk-icon="icon: cart" class="uk-icon"></span>
+                <span class="uk-badge cart-count">0</span>
+              </a>
+            </li>
+            <li>
+              <a href="#"><span uk-icon="icon: user" class="uk-icon"></span></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Banner Slider -->
+    <div class="banner-slider-container">
+      <div class="banner-slider">
+        <div class="banner-slide">
+          <img src="../image/baner3.png" alt="Banner 1" />
+          <div class="banner-content"></div>
+          <div class="progress-bar"></div>
+        </div>
+        <div class="banner-slide">
+          <img src="../image/Baner4.png" alt="Banner 3" />
+          <div class="banner-content"></div>
+          <div class="progress-bar"></div>
+        </div>
+        <div class="banner-slide">
+          <img src="../image/banner2.png" alt="Banner 2" />
+          <div class="banner-content">
+            <p>Sản phẩm mới - Đừng bỏ lỡ!</p>
+            <a href="#" class="btn-shop-now">Khám phá ngay</a>
+          </div>
+          <div class="progress-bar"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <main class="uk-container">
+      <!-- Danh Mục Sản Phẩm -->
+      <div class="product-categories uk-margin" data-aos="fade-up">
+        <h2 class="uk-heading-line"><span>Danh Mục Sản Phẩm</span></h2>
+        <div
+          class="uk-grid-small uk-child-width-1-4@m"
+          uk-grid
+          id="category-list"
+        >
+          <!-- Danh mục sản phẩm sẽ được thêm vào đây từ JavaScript -->
+        </div>
+      </div>
+
+      <!-- Các sản phẩm được đánh giá cao nhất -->
+      <div class="featured-products uk-margin" data-aos="fade-up">
+        <h2 class="uk-heading-line">
+          <span>Các sản phẩm được đánh giá cao nhất</span>
+        </h2>
+        <div class="grid">
+          <!-- Sản phẩm được đánh giá cao nhất sẽ được thêm vào đây từ JavaScript -->
+        </div>
+      </div>
+
+      <!-- Các thẻ giảm giá nổi bật -->
+      <div class="featured-coupons uk-margin" data-aos="fade-up">
+        <h2 class="uk-heading-line"><span>Các thẻ giảm giá nổi bật</span></h2>
+        <div class="coupon-grid">
+          <!-- Thẻ giảm giá nổi bật sẽ được thêm vào đây từ JavaScript -->
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal Giỏ hàng -->
+    <div id="cartModal" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body" data-aos="fade-up">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <h2 class="uk-modal-title">Giỏ hàng của bạn</h2>
+        <div class="table-responsive">
+          <table class="uk-table uk-table-divider">
+            <thead>
+              <tr>
+                <th>Tên sản phẩm</th>
+                <th>Thương hiệu</th>
+                <th>Danh mục</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Tổng</th>
+                <th>Hành động</th>
+              </tr>
+            </thead>
+            <tbody class="cart-items"></tbody>
+          </table>
+        </div>
+        <p class="uk-text-right">
+          <button
+            class="uk-button uk-button-default uk-modal-close"
+            type="button"
+          >
+            Đóng
+          </button>
+          <button
+            class="uk-button uk-button-primary checkout-btn"
+            type="button"
+          >
+            Thanh toán
+          </button>
+        </p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer data-aos="fade-up">
+      <div class="footer-container" data-aos="fade-up" data-aos-delay="0">
+        <div class="footer-section">
+          <h4>Về J97 SHOP</h4>
+          <ul>
+            <li><a href="#">Giới thiệu</a></li>
+            <li><a href="#">Liên hệ</a></li>
+            <li><a href="#">Chính sách bảo mật</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Hỗ trợ khách hàng</h4>
+          <ul>
+            <li><a href="#">Hướng dẫn mua hàng</a></li>
+            <li><a href="#">Chính sách đổi trả</a></li>
+            <li><a href="#">Chính sách bảo hành</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Kết nối với chúng tôi</h4>
+          <ul class="social-media">
+            <li>
+              <a href="https://www.facebook.com/profile.php?id=61564286459227&mibextid=ZbWKwL"><img src="../image/fb.webp" alt="Facebook" /></a>
+            </li>
+            <li>
+              <a href="https://zaloapp.com/qr/p/mhi359aakl8e?src=qr"><img src="../image/zalo.webp" alt="Zalo" /></a>
+            </li>
+            <li>
+              <a href="https://www.tiktok.com/@tho0335"><img src="../image/tt.webp" alt="Tiktok" /></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 J97 SHOP. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.22/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.6.22/js/uikit-icons.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <script
+      type="module"
+      src="../javascript/list-object/list_products.js"
+    ></script>
+    <script
+      type="module"
+      src="../javascript/list-object/list_categories.js"
+    ></script>
+    <script
+      type="module"
+      src="../javascript/list-object/list_coupon.js"
+    ></script>
+    <script type="module" src="../javascript/home.js"></script>
+    <script src="../javascript/reponsive/header_reponsive.js"></script>
+    <script src="../javascript/slider.js"></script>
+    <script type="module" src="../call-api/handler-product.js"></script>
+    <script type="module" src="../call-api/handler-categories.js"></script>
+    <script type="module" src="../call-api/handler-coupon.js"></script>
+    <script src="../call-api/node_modules/axios/dist/axios.min.js"></script>
+  </body>
+</html>

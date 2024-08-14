@@ -1,0 +1,564 @@
+/* Đảm bảo các thuộc tính cơ bản */
+body {
+  font-family: Arial, sans-serif !important;
+  background-color: #f8f9fa;
+}
+
+.mb-3 {
+  margin-top: 150px;
+}
+
+/* Định dạng cho main */
+.product-item, .product-item * {
+  font-family: Arial, sans-serif !important;
+}
+
+.product-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.product-item img {
+  width: 100%;
+  height: 200px; /* Hoặc kích thước bạn mong muốn */
+  object-fit: contain; /* Đảm bảo hình ảnh không bị cắt xén */
+  background-color: #f2f2f2; /* Màu nền để hiển thị khoảng trống nếu có */
+}
+
+.product-item .card-title {
+  height: 50px; /* Điều chỉnh chiều cao phù hợp */
+  overflow: hidden; /* Ẩn phần văn bản thừa */
+  margin-top: 18px;
+}
+
+.product-item .card-text {
+  height: 40px; /* Điều chỉnh chiều cao phù hợp */
+  overflow: hidden; /* Ẩn phần văn bản thừa */
+}
+
+.product-item button {
+  width: 100%;
+  margin-bottom: 12px;
+  background-color: black;
+}
+.product-item button:hover {
+  width: 100%;
+  margin-bottom: 12px;
+  background-color: #0606068a;
+  /* Thêm độ bóng đẹp */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);}
+
+.cart-icon {
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.cart-icon .cart-count {
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 1px 6px;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 14px;
+}
+
+.table-responsive {
+  overflow-x: auto; /* Tạo khung cuộn ngang */
+}
+
+.cart-modal, .cart-modal * {
+  font-family: Arial, sans-serif !important;
+}
+
+.cart-modal table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+
+.cart-modal th,
+.cart-modal td {
+  padding: 10px;
+  text-align: left;
+  word-wrap: break-word;
+  white-space: nowrap; /* Ngăn chặn xuống dòng tự động */
+  border: 1px solid #ccc;
+}
+
+.toast-success {
+  background-color: #333 !important;
+  color: #fff !important;
+  top: 108px !important; /* Điều chỉnh vị trí dưới biểu tượng giỏ hàng */
+ 
+}
+
+.toast-success .toast-title {
+  color: #fff !important;
+}
+
+.toast-success .toast-message {
+  color: #fff !important;
+}
+
+.toast-success .toast-progress {
+  background-color: #fff !important;
+}
+
+.toast-custom-position {
+  top: 20px !important; /* Điều chỉnh vị trí dưới biểu tượng giỏ hàng */
+  right: 80px !important;
+  
+}
+
+@media (max-width: 768px) {
+  .toast-custom-position {
+    top: 50px !important; /* Điều chỉnh vị trí dưới biểu tượng giỏ hàng */
+    right: 10px !important;
+  }
+}
+
+.cart-icon .cart-count {
+  top: -1px;
+  right: 0px;
+  font-size: 12px;
+}
+
+.cart-modal {
+  width: 100%;
+  padding: 10px;
+}
+
+.cart-modal .close-btn,
+.cart-modal .checkout-btn {
+  padding: 8px 16px;
+}
+
+/* Định dạng cho hộp tìm kiếm trong main */
+.main .filters #main-search {
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  background: #f2f2f2;
+  border-radius: 30px;
+  color: gray;
+  font-size: 16px;
+  padding-left: 5px;
+  padding-right: 40px;
+}
+
+@media (max-width: 768px) {
+  .cart-modal {
+    width: 90%;
+    padding: 10px;
+  }
+  .cart-modal table {
+    min-width: 100%;
+  }
+  .cart-icon .cart-count {
+    top: 2px;
+    right: -6px;
+    font-size: 12px;
+  }
+}
+
+/* Thêm đoạn CSS mới cho .cart-items */
+.cart-items {
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.cart-items td {
+  vertical-align: middle;
+}
+
+.cart-items .remove-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.cart-items .btn-danger {
+  padding: 5px 10px;
+}
+
+.modal-body {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.modal-content {
+  width: auto !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.modal-dialog {
+  max-width: 100% !important;
+}
+.thead-dark {
+  white-space: nowrap;
+  overflow-x: auto;
+  text-align: center; /* Căn giữa theo chiều ngang */
+}
+
+.thead-dark th {
+  vertical-align: middle; /* Căn giữa theo chiều dọc */
+  padding: 10px; /* Thêm khoảng cách padding cho các ô */
+}
+
+#quantity_product {
+  min-width: 60px !important; /* Đặt kích thước tối thiểu */
+  width: 100% !important; /* Đặt kích thước tự động */
+  text-align: center !important; /* Căn giữa văn bản */
+}
+
+/* Thêm đoạn CSS mới cho .grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Hiển thị 4 sản phẩm trên một dòng */
+  gap: 20px; /* Khoảng cách giữa các sản phẩm */
+}
+
+@media (max-width: 1000px) {
+  .list {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Hiển thị 2 sản phẩm trên một dòng khi màn hình nhỏ hơn 1000px */
+  }
+}
+
+@media (max-width: 768px) {
+  .list {
+    grid-template-columns: repeat(
+      1,
+      1fr
+    ); /* Hiển thị 1 sản phẩm trên một dòng khi màn hình nhỏ hơn 768px */
+  }
+}
+
+@media (min-width: 1200px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .container,
+  .container-md,
+  .container-sm {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 576px) {
+  .container,
+  .container-sm {
+    max-width: 100% !important;
+  }
+}
+
+/* Đảm bảo rằng các container cũng chiếm toàn bộ chiều rộng màn hình dưới 576px */
+.container,
+.container-sm,
+.container-md,
+.container-lg,
+.container-xl {
+  max-width: 100% !important;
+}
+
+footer {
+  margin-top: 40px;
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+}
+
+footer, footer * {
+  font-family: Arial, sans-serif !important;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 10px;
+  min-width: 200px;
+}
+
+.footer-section h4 {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin: 5px 0;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.social-media {
+  display: flex;
+}
+
+.social-media li {
+  margin-right: 10px;
+  padding: 0 10px;
+}
+
+.social-media li a img {
+  width: 24px !important;
+  height: 24px !important;
+  font-size: 24px !important;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0;
+  border-top: 1px solid #444;
+  margin-top: 20px;
+}
+
+#menu_home {
+  margin-right: 0px !important;
+}
+
+/* Thêm các quy tắc CSS từ home.css để đồng bộ header */
+header {
+  background-color: #333 !important;
+  color: #fff !important;
+  padding: 10px 0 !important;
+}
+
+.uk-navbar-nav > li > a:hover,
+.uk-navbar-nav > li > a.active {
+  color: #686666 !important;
+}
+
+.uk-navbar-nav > li > a {
+  color: #fff !important;
+}
+
+.uk-navbar-container {
+  background-color: #333 !important;
+  color: #fff !important;
+}
+
+.uk-logo {
+  color: #fff !important;
+  font-weight: bold !important;
+}
+
+.uk-logo:hover {
+  color: #ddd !important;
+}
+
+.uk-modal-dialog {
+  width: auto !important;
+}
+
+.mt-4 {
+  width: 1400px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#productDetailModal .uk-modal-body {
+  max-width: 800px;
+  margin: auto;
+}
+
+#productDetailContent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#productDetailContent img {
+  max-width: 300px;
+  margin-right: 20px;
+}
+
+#productDetailContent .product-info {
+  flex: 1;
+}
+
+#comments-list {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-top: 20px;
+}
+
+#comments-list .comment {
+  border-bottom: 1px solid #eee;
+  padding: 10px 0;
+}
+
+.rating-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rating-and-comment {
+  display: flex;
+  flex-direction: column;
+}
+
+.stars-and-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.stars-and-title h2 {
+  margin: 0;
+  flex: 1;
+}
+
+.stars {
+  display: flex;
+  flex: 2;
+  align-items: center;
+}
+
+.star {
+  position: relative;
+  width: 18px; /* Kích thước của mỗi nửa ngôi sao */
+  height: 36px;
+  cursor: pointer;
+}
+
+.star i {
+  font-size: 36px; /* Kích thước của ngôi sao */
+  color: gray; /* Màu mặc định của ngôi sao */
+  transition: color 0.3s; /* Hiệu ứng chuyển màu */
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  cursor: pointer; /* Con trỏ chuột khi trỏ vào ngôi sao */
+  width: 20px;
+  height: 36px;
+  margin-top: -9px;
+}
+
+
+.star i.right {
+  transform: scaleX(-1);
+}
+
+.star i {
+  color: gray;
+  transition: color 0.3s;
+}
+
+.star i.active,
+.star i.hover {
+  color: gold;
+}
+
+
+
+
+.rating-value {
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+.comments-section {
+  margin-top: 20px;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.comment-form {
+  margin-bottom: 20px;
+}
+
+#comment-input {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+#comments-list {
+  padding-right: 30px; /* Tạo khoảng trống cho thanh cuộn */
+  overflow-y: auto;
+}
+
+#comments-list::-webkit-scrollbar {
+  width: 8px; /* Điều chỉnh chiều rộng của thanh cuộn */
+}
+
+#comments-list::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Màu nền của track */
+}
+
+#comments-list::-webkit-scrollbar-thumb {
+  background: #888; /* Màu của thanh cuộn */
+  border-radius: 4px; /* Bo tròn góc của thanh cuộn */
+}
+
+#comments-list::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Màu khi hover vào thanh cuộn */
+}
+
+.comment {
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.comment p {
+  margin: 5px 0;
+}
+
+.comment strong {
+  color: #333;
+}
+
+.uk-button-primary {
+  margin-top: 10px;
+}
